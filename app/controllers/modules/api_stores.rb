@@ -8,7 +8,7 @@ module ApiStore
         @store = Store.new(
             name: name,
             country: country,
-            desciption: description,
+            description: description,
             location: city,
             user_id: 1,
         )
@@ -24,7 +24,7 @@ module ApiStore
         categories = params[:categories].to_unsafe_h
         check_arr = []
         categories.each_with_index do |value, key|
-           StoreCategory.create(stores_id: @store_id, name: value[1][:name], categories_id: value[1][:id])
+           StoreCategory.create(store_id: @store_id, name: value[1][:name], store_categories_list_id: value[1][:id])
            check_arr << 'check'
         end
   
@@ -37,13 +37,13 @@ module ApiStore
 
       def save_store_pictures
         @store = Store.find(params[:store_id])
-        @store_image = StoreImage.create(user_id: 1, store_id: params[:store_id], file_type: params[:fyle_type])
-        @store_image.images.attach(params[:images])
+        @store_image = StoreImage.create(store_id: params[:store_id]) # file_type: params[:fyle_type]
+        @store_image.pictures.attach(params[:images])
 
-        if @store_image.images.attached?
+        if @store_image.pictures.attached?
           render json: { message: 'Created successfully', store_id: params[:store_id] }
         else
           render json: { message: 'Creation failed, Please check your params!' }
         end
-      end  
+      end
 end

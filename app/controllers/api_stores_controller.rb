@@ -4,7 +4,8 @@ class ApiStoresController < ApplicationController
     skip_before_action :verify_authenticity_token
     include ApiStore
     def index
-      render json: {message: 'Waiting for parameters'}
+      @stores = Store.where(user_id: 1)
+      render :json => @stores, each_serializer: ApiStoresSerializer
     end
     
     def show

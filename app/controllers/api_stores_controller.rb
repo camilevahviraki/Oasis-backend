@@ -2,6 +2,8 @@ require 'modules/api_stores.rb'
 
 class ApiStoresController < ApplicationController
     skip_before_action :verify_authenticity_token
+    # before_action :authenticate_user!    
+
     include ApiStore
     def index
       @stores = Store.where(user_id: 1)
@@ -21,11 +23,8 @@ class ApiStoresController < ApplicationController
       elsif @step == '3'
         save_store_pictures
       elsif @step == '4'
-        #mmmmmmmm
-      elsif @step == '5'
-        #mmmmmmmm  
+        save_store_places
       else
-        #mmmmmmm
         render json: {message: 'Missing or uncorrect step parameter!'}
       end
 

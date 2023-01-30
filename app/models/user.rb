@@ -10,4 +10,9 @@ class User < ApplicationRecord
   has_many :carts, foreign_key: 'user_id', dependent: :destroy
   has_many :orders, foreign_key: 'user_id', dependent: :destroy
 
+  has_one_attached :avatar
+
+  def avatar_url
+    avatar.attachment.url
+  end
 end

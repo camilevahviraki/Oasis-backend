@@ -1,8 +1,7 @@
 require 'modules/api_stores.rb'
 
 class ApiStoresController < ApplicationController
-    skip_before_action :verify_authenticity_token
-    # before_action :authenticate_user!    
+    # before_action :authenticate_user!
 
     include ApiStore
     def index
@@ -11,7 +10,7 @@ class ApiStoresController < ApplicationController
     end
     
     def show
-    end    
+    end
     
     def create
       @step = params[:step]

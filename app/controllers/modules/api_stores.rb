@@ -10,7 +10,7 @@ module ApiStore
             country: country,
             description: description,
             location: city,
-            user_id: 1,
+            user_id: user_id,
         )
         if @store.save
           render json: { message: 'created sucessfully', store_id: @store.id, step: 2 }

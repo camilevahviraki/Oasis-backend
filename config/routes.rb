@@ -84,4 +84,8 @@ Rails.application.routes.draw do
     post 'orders/destroy', to: 'orders#destroy'
     post 'orders/update', to: 'orders#update'
 
+    # ##12:Users
+    post 'users/list', to: 'get_users#index'
+    post 'users/list/show', to: 'get_users#show'
+
 end

@@ -1,9 +1,9 @@
 
  # Portfolio
 
-> This is my personnal portfolio, feel free to check it out.
+> Welcome to the Oasis App.
 
-  ![](./public/images/Screenshot from 2023-02-20 23-35-13.png)
+  <img src='./public/images/Screenshot from 2023-02-20 23-35-13.png' alt=''>
 
 
 ## Built With

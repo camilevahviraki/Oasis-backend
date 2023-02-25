@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_24_210428) do
+ActiveRecord::Schema[7.0].define(version: 2023_02_16_165905) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -63,6 +63,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_24_210428) do
     t.index ["user_id"], name: "index_carts_on_user_id"
   end
 
+  create_table "cities", force: :cascade do |t|
+    t.string "city"
+    t.integer "latitude"
+    t.integer "longitude"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "country_id"
+    t.index ["country_id"], name: "index_cities_on_country_id"
+  end
+
   create_table "comments_items", force: :cascade do |t|
     t.text "text"
     t.datetime "created_at", null: false
@@ -93,6 +103,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_24_210428) do
     t.text "icon"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "latitude"
+    t.integer "longitude"
   end
 
   create_table "currencies", force: :cascade do |t|
@@ -110,8 +122,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_24_210428) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "item_id"
-    t.bigint "item_categories_lists_id"
-    t.index ["item_categories_lists_id"], name: "index_item_categories_on_item_categories_lists_id"
+    t.bigint "item_categories_list_id"
+    t.index ["item_categories_list_id"], name: "index_item_categories_on_item_categories_list_id"
     t.index ["item_id"], name: "index_item_categories_on_item_id"
   end
 
@@ -166,6 +178,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_24_210428) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "store_id"
+    t.string "pictures"
+    t.integer "price"
+    t.string "currency"
+    t.text "description"
+    t.integer "quantity"
     t.index ["store_id"], name: "index_items_on_store_id"
   end
 
@@ -260,12 +277,13 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_24_210428) do
     t.string "location"
     t.string "open-from"
     t.string "close-at"
-    t.string "country"
     t.string "description"
     t.string "info"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
+    t.bigint "country_id"
+    t.index ["country_id"], name: "index_stores_on_country_id"
     t.index ["user_id"], name: "index_stores_on_user_id"
   end
 
@@ -281,6 +299,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_24_210428) do
     t.datetime "remember_created_at"
     t.string "jti", null: false
     t.string "avatar"
+    t.bigint "country_id"
+    t.index ["country_id"], name: "index_users_on_country_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["jti"], name: "index_users_on_jti", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
@@ -292,8 +312,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_24_210428) do
   add_foreign_key "cart_items", "items"
   add_foreign_key "cart_items", "stores"
   add_foreign_key "carts", "users"
+  add_foreign_key "cities", "countries"
   add_foreign_key "comments_stores", "stores"
-  add_foreign_key "item_categories", "item_categories_lists", column: "item_categories_lists_id"
+  add_foreign_key "item_categories", "item_categories_lists"
   add_foreign_key "item_categories", "items"
   add_foreign_key "item_comment_likes", "item_comments"
   add_foreign_key "item_comment_replies", "item_comments"
@@ -311,5 +332,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_24_210428) do
   add_foreign_key "store_categories", "store_categories_lists"
   add_foreign_key "store_categories", "stores"
   add_foreign_key "store_images", "stores"
+  add_foreign_key "stores", "countries"
   add_foreign_key "stores", "users"
+  add_foreign_key "users", "countries"
 end

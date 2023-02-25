@@ -1,5 +1,6 @@
 class Store < ApplicationRecord
     belongs_to :user, :class_name => 'User', :foreign_key => 'user_id', :validate => true
+    belongs_to :country, :class_name => 'Country', :foreign_key => 'country_id'
     has_many :comments_stores, foreign_key: 'store_id', dependent: :destroy
     has_many :cart_items, foreign_key: 'store_id', dependent: :destroy
     has_many :items, foreign_key: 'store_id', dependent: :destroy

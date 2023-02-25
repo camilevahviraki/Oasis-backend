@@ -13,38 +13,41 @@ Rails.application.routes.draw do
         registrations: 'users/registrations'
     }
 
+    # ##0: Home page
+    get 'user/:user_id/home_page', to: 'home_page/home#index'
+
     # ##1: Stores
-    get 'api_stores', to: 'api_stores#index'
-    post 'api_stores/show', to: 'api_store#show'
-    get 'api_stores/create', to: 'api_stores#new'
-    post 'api_stores/destroy', to: 'api_stores#destroy'
-    post 'api_stores/update', to: 'api_stores#update'
-    post 'api_stores', to: 'api_stores#create' # #new_store
+    get 'store/:user_id/api_stores', to: 'stores/stores#index'
+    get 'store/:user_id/api_stores/:store_id', to: 'stores/stores#show'
+    get 'store/:user_id/api_stores', to: 'stores/stores#new'
+    post 'store/:user_id/api_stores/destroy', to: 'stores/stores#destroy'
+    post 'store/update', to: 'stores/stores#update'
+    post 'api_stores', to: 'stores/stores#create' # #new_store
   
     # ##2: Comments Store
-    get 'api_stores/show/comments', to: 'store_comments#index' # #getlikes for Each
-    get 'api_stores/show/comments/show', to: 'store_comments#show' ## show likes here
-    post 'api_stores/show/comments/new', to: 'store_comments#create'
-    post 'api_stores/show/comments/edit', to: 'store_comments#update'
-    post 'api_stores/show/comments/destroy', to: 'store_comments#destroy'
+    get 'api_stores/show/comments', to: 'stores/comments#index' # #getlikes for Each
+    get 'api_stores/show/comments/show', to: 'stores/comments#show' ## show likes here
+    post 'api_stores/show/comments/new', to: 'stores/comments#create'
+    post 'api_stores/show/comments/edit', to: 'stores/comments#update'
+    post 'api_stores/show/comments/destroy', to: 'stores/comments#destroy'
   
     # ##3:Likes Store
-    post 'api_stores/show/likes/new', to: 'store_likes#create'  ## create Store's likes here
-    post 'api_stores/show/likes/edit', to: 'store_likes#update' ## Update Store's likes here
-    post 'api_stores/show/likes/destroy', to: 'store_likes#destroy' ## Remove Store's likes here
+    post 'api_stores/show/likes/new', to: 'stores/likes#create'  ## create Store's likes here
+    post 'api_stores/show/likes/edit', to: 'stores/likes#update' ## Update Store's likes here
+    post 'api_stores/show/likes/destroy', to: 'stores/likes#destroy' ## Remove Store's likes here
   
     # ##4:Likes Comments for a Store
-    post 'api_stores/show/comments/likes/new', to: 'comment_store_likes#create'  ## create Likes For Comment Store here
-    post 'api_stores/show/comments/likes/edit', to: 'comment_store_likes#update' ## Update Likes For Comment Store here
-    post 'api_stores/show/comments/likes/destroy', to: 'comment_store_likes#destroy' ## Remove Likes For Comment Store here
+    post 'api_stores/show/comments/likes/new', to: 'stores/comment_store_likes#create'  ## create Likes For Comment Store here
+    post 'api_stores/show/comments/likes/edit', to: 'stores/comment_store_likes#update' ## Update Likes For Comment Store here
+    post 'api_stores/show/comments/likes/destroy', to: 'stores/comment_store_likes#destroy' ## Remove Likes For Comment Store here
   
     # ##5:Items for a Store
-    get 'api_stores/show/items', to: 'stores_items#index'
-    post 'api_stores/show/items/details', to: 'stores_items#show'
-    post 'api_stores/show/items/new', to: 'stores_items#new'
-    post 'api_stores/show/items/destroy', to: 'stores_items#destroy'
-    post 'api_stores/show/items/update', to: 'stores_items#update'
-    post 'api_stores/show/items', to: 'stores_items#create'
+    get 'api_stores/:store_id/items/:category', to: 'items/items#index'
+    get 'api_stores/:store_id/item/:item_id', to: 'items/items#show'
+    post 'api_stores/show/items/new', to: 'items/items#new'
+    post 'api_stores/show/items/destroy', to: 'items/items#destroy'
+    post 'api_stores/show/items/update', to: 'items/items#update'
+    post 'api_stores/show/items', to: 'items/items#create'
   
     # ##6:Item comments
     post 'api_stores/show/items/comments', to: 'comments_item#index'
@@ -88,4 +91,26 @@ Rails.application.routes.draw do
     post 'users/list', to: 'get_users#index'
     post 'users/list/show', to: 'get_users#show'
 
+
+    # ##13:Currency
+    get 'currencies', to: 'currencies/currencies#index'
+    get 'currency/:id', to: 'currencies/currencies#show'
+    delete 'currency/:id', to: 'currencies/currencies#delete' ## for admin only
+    put 'currency/:id', to: 'currencies/currencies#update' ## for admin only
+    post 'currencies', to: 'currencies/currencies#create' ## for admin only
+
+    # ##14:Country
+    get 'countries', to: 'countries/countries#index'
+    get 'country/:id', to: 'countries/countries#show'
+    delete 'country/:id', to: 'countries/countries#delete' ## for admin only
+    put 'country/:id', to: 'countries/countries#update' ## for admin only
+    post 'countries', to: 'countries/countries#create' ## for admin only
+
+    # ##15:Stores Categories List
+    get 'stores_categories_list', to: 'categories_list/stores_categories_list#index'
+    get 'stores_category/:id', to: 'categories_list/stores_categories_list#show'
+    delete 'stores_category/:id', to: 'categories_list/stores_categories_list#delete' ## for admin only
+    put 'stores_category/:id', to: 'categories_list/stores_categories_list#update' ## for admin only
+    post 'stores_categories_list', to: 'categories_list/stores_categories_list#create' ## for admin only
+    
 end

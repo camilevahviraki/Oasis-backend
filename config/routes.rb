@@ -108,9 +108,21 @@ Rails.application.routes.draw do
 
     # ##15:Stores Categories List
     get 'stores_categories_list', to: 'categories_list/stores_categories_list#index'
-    get 'stores_category/:id', to: 'categories_list/stores_categories_list#show'
-    delete 'stores_category/:id', to: 'categories_list/stores_categories_list#delete' ## for admin only
-    put 'stores_category/:id', to: 'categories_list/stores_categories_list#update' ## for admin only
+    get 'stores_category_list/:id', to: 'categories_list/stores_categories_list#show'
+    delete 'stores_category_list/:id', to: 'categories_list/stores_categories_list#delete' ## for admin only
+    put 'stores_category_list/:id', to: 'categories_list/stores_categories_list#update' ## for admin only
     post 'stores_categories_list', to: 'categories_list/stores_categories_list#create' ## for admin only
-    
+
+    # ##16:Stores_categories
+    get 'store/:store_id/stores_categories', to: 'store_categories/stores_categories#index'
+    get 'stores_category/:id', to: 'store_categories/stores_categories#show'
+    delete 'stores_category/:id', to: 'store_categories/stores_categories#delete'
+    post 'stores_categories', to: 'store_categories/stores_categories#create'
+
+    # ##17:store files_attachments
+    get 'store/:store_id/images', to: 'stores/store_images#index'
+    get 'store/:store_id/image/:id', to: 'stores/store_images#show'
+    delete 'store_image/:id', to: 'stores/store_images#delete'
+    post 'store/:store_id/image', to: 'stores/store_images#create'
+
 end

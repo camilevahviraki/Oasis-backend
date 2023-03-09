@@ -5,15 +5,14 @@ class ApiStoresSerializer < ActiveModel::Serializer
              end
 
   def images_url
-    store_images = StoreImage.where(store_id: object.id)[0]
+    store_images = StoreImage.where(store_id: object.id)
+
     arr = []
-    if store_images
-      store_images.pictures.attachments.each do |picture|
+    store_images.each do |store_image_single|
+      store_image_single.pictures.attachments.each do |picture|
         arr << picture.url
       end
-      arr
-    else
-      []
     end
+    arr
   end
 end

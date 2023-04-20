@@ -1,8 +1,17 @@
 class ApiStoresSerializer < ActiveModel::Serializer
-  attributes :id, :name, :country_id, :location, :country, :description, :user_id, :categories, :images_url,
+  attributes :id, :name, :country_id, :location, :country, :description, :user_id, :categories, :images_url, :main_image_url
+
              def categories
                StoreCategory.where(store_id: object.id)
              end
+
+  def main_image_url
+    if object.image.attached?
+      object.image.attachment.url
+    else
+      nil
+    end  
+  end  
 
   def images_url
     store_images = StoreImage.where(store_id: object.id)

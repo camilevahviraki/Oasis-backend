@@ -15,10 +15,32 @@ class Stores::StoreImagesController < ApplicationController
 
   def delete
     @image = ActiveStorage::Attachment.find(params[:id])
-    if @image.purge
-      render json: { message: 'Image deleted successfully' }
+    if @image
+      if @image.purge
+        render json: { message: 'Image deleted successfully' }
+      else
+        render json: { message: 'Error while deleting image' }
+      end
     else
-      render json: { message: 'Error while deleting image' }
-    end
+      render json: { message: 'Couldn\'t find image!' }
+    end    
   end
+
+  def create
+    store_id = params[:store_id]
+    @store = Store.find(store_id)
+
+    if @store
+      @store_image = StoreImage.create(store_id: store_id)
+      @store_image.pictures.attach(params[:images])
+    
+      if @store_image.pictures.attached?
+        render json: { message: 'Images uploaded successfully' }
+      else
+        render json: { message: 'Creation failed, Please check your params!' }
+      end
+    else
+      render json: { message: 'Couldn\'t find store!' }
+    end  
+  end  
 end

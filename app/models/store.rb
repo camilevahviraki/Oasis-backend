@@ -9,4 +9,7 @@ class Store < ApplicationRecord
   has_many :places, foreign_key: 'store_id', dependent: :destroy
   has_many :store_categories, foreign_key: 'store_id', dependent: :destroy
   has_many :store_images, foreign_key: 'store_id', dependent: :destroy
+  has_many :carts, foreign_key: 'store_id', dependent: :destroy
+
+  has_one_attached :image
 end

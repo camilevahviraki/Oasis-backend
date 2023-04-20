@@ -69,11 +69,12 @@ Rails.application.routes.draw do
     post 'api_stores/show/item/comment/likes/destroy', to: 'like_comment_item#destroy'
     post 'api_stores/show/item/comment/likes/update', to: 'like_comment_item#update'
   
-    # ##9:Cart Items
-    post 'carts', to: 'cart#index' ## => User_id , a Client
-    post 'cart/new', to: 'cart#create' ## => required: cart_id, new_data
-    post 'cart/destroy', to: 'cart#destroy' ## => required: cart_id
-    post 'cart/update', to: 'cart#update' ## => required: cart_id, new_data
+    # ##9:Cart element
+    get 'carts', to: 'carts/cart#index'
+    get 'cart/:user_id', to: 'carts/carts#show' ## => User_id , a Client
+    post 'cart/new', to: 'carts/carts#create' ## => required: cart_id, new_data
+    post 'cart/destroy', to: 'carts/carts#destroy' ## => required: cart_id
+    post 'cart/update', to: 'carts/carts#update' ## => required: cart_id, new_data
   
     # ##10:Google Places, Map
     post 'places', to: 'places#index'
@@ -124,5 +125,57 @@ Rails.application.routes.draw do
     get 'store/:store_id/image/:id', to: 'stores/store_images#show'
     delete 'store_image/:id', to: 'stores/store_images#delete'
     post 'store/:store_id/image', to: 'stores/store_images#create'
+
+    # ##18:Item Colors
+    get 'item/:item_id/colors', to: 'item_attributes/item_colors#index'
+    get 'item/:item_id/colors/:id', to: 'item_attributes/item_colors#show'
+    post 'item/:item_id/colors/:id/image', to: 'item_attributes/item_colors#update'
+    delete 'item/:item_id/colors/:id', to: 'item_attributes/item_colors#delete'
+    post 'item/:item_id/colors', to: 'item_attributes/item_colors#create'
+
+    # ##19:Item materials
+    get 'item/:item_id/materials', to: 'item_attributes/item_materials#index'
+    get 'item/:item_id/materials/:id', to: 'item_attributes/item_materials#show'
+    post 'item/:item_id/materials/:id/image', to: 'item_attributes/item_materials#update'
+    delete 'item/:item_id/materials/:id', to: 'item_attributes/item_materials#delete'
+    post 'item/:item_id/materials', to: 'item_attributes/item_materials#create'
+
+    # ##20:Item sizes
+    get 'item/:item_id/sizes', to: 'item_attributes/item_sizes#index'
+    get 'item/:item_id/sizes/:id', to: 'item_attributes/item_sizes#show'
+    post 'item/:item_id/sizes/:id/image', to: 'item_attributes/item_sizes#update'
+    delete 'item/:item_id/sizes/:id', to: 'item_attributes/item_sizes#delete'
+    post 'item/:item_id/sizes', to: 'item_attributes/item_sizes#create'
+
+    # ##21:Item capacity
+    get 'item/:item_id/capacity', to: 'item_attributes/item_capacities#index'
+    get 'item/:item_id/capacity/:id', to: 'item_attributes/item_capacities#show'
+    post 'item/:item_id/capacity/:id/image', to: 'item_attributes/item_capacities#update'
+    delete 'item/:item_id/capacity/:id', to: 'item_attributes/item_capacities#delete'
+    post 'item/:item_id/capacity', to: 'item_attributes/item_capacities#create'
+
+    # ##22:Capacity
+    get 'capacity', to: 'attributes/capacities#index'
+    get 'capacity/:id', to: 'attributes/capacities#show'
+    delete 'capacity/:id', to: 'attributes/capacities#delete'
+    post 'capacity', to: 'attributes/capacities#create'
+
+    # ##23:Size
+    get 'size', to: 'attributes/sizes#index'
+    get 'size/:id', to: 'attributes/sizes#show'
+    delete 'size/:id', to: 'attributes/sizes#delete'
+    post 'size', to: 'attributes/sizes#create'
+
+    # ##24:Material
+    get 'material', to: 'attributes/materials#index'
+    get 'material/:id', to: 'attributes/materials#show'
+    delete 'material/:id', to: 'attributes/materials#delete'
+    post 'material', to: 'attributes/materials#create'
+
+    # ##25:Color
+    get 'color', to: 'attributes/colors#index'
+    get 'color/:id', to: 'attributes/colors#show'
+    delete 'color/:id', to: 'attributes/colors#delete'
+    post 'color', to: 'attributes/colors#create'
 
 end

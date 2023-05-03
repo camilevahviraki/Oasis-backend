@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_04_19_210104) do
+ActiveRecord::Schema[7.0].define(version: 2023_04_30_181341) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -261,7 +261,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_19_210104) do
 
   create_table "items", force: :cascade do |t|
     t.text "names"
-    t.string "mainName"
+    t.string "main_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "store_id"
@@ -273,6 +273,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_19_210104) do
     t.string "shipping_options"
     t.string "return_policy"
     t.string "availability"
+    t.string "category_name"
+    t.bigint "search_suggestion_id"
+    t.index ["search_suggestion_id"], name: "index_items_on_search_suggestion_id"
     t.index ["store_id"], name: "index_items_on_store_id"
   end
 
@@ -342,6 +345,13 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_19_210104) do
     t.index ["store_id"], name: "index_places_on_store_id"
   end
 
+  create_table "search_suggestions", force: :cascade do |t|
+    t.string "query_name"
+    t.string "table_name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "sizes", force: :cascade do |t|
     t.string "name"
     t.string "code"
@@ -388,7 +398,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_19_210104) do
     t.bigint "user_id"
     t.bigint "country_id"
     t.string "image"
+    t.bigint "search_suggestion_id"
     t.index ["country_id"], name: "index_stores_on_country_id"
+    t.index ["search_suggestion_id"], name: "index_stores_on_search_suggestion_id"
     t.index ["user_id"], name: "index_stores_on_user_id"
   end
 
@@ -405,10 +417,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_19_210104) do
     t.string "jti", null: false
     t.string "avatar"
     t.bigint "country_id"
+    t.bigint "search_suggestion_id"
     t.index ["country_id"], name: "index_users_on_country_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["jti"], name: "index_users_on_jti", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["search_suggestion_id"], name: "index_users_on_search_suggestion_id"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
@@ -440,6 +454,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_19_210104) do
   add_foreign_key "item_materials", "materials"
   add_foreign_key "item_sizes", "items"
   add_foreign_key "item_sizes", "sizes"
+  add_foreign_key "items", "search_suggestions"
   add_foreign_key "items", "stores"
   add_foreign_key "likes_items", "items"
   add_foreign_key "likes_stores", "stores"
@@ -453,6 +468,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_19_210104) do
   add_foreign_key "store_categories", "stores"
   add_foreign_key "store_images", "stores"
   add_foreign_key "stores", "countries"
+  add_foreign_key "stores", "search_suggestions"
   add_foreign_key "stores", "users"
   add_foreign_key "users", "countries"
+  add_foreign_key "users", "search_suggestions"
 end

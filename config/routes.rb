@@ -15,6 +15,7 @@ Rails.application.routes.draw do
 
     # ##0: Home page
     get 'user/:user_id/home_page', to: 'home_page/home#index'
+    post 'user/:user_id/home_page/search', to: 'home_page/home#search'
 
     # ##1: Stores
     get 'store/:user_id/api_stores', to: 'stores/stores#index'
@@ -45,6 +46,7 @@ Rails.application.routes.draw do
     get 'api_stores/:store_id/items/:category', to: 'items/items#index'
     get 'api_stores/:store_id/item/:item_id', to: 'items/items#show'
     post 'api_stores/show/items/new', to: 'items/items#new'
+    post '/api_stores/:store_id/items/:category/search', to: 'items/items#search'
     post 'api_stores/show/items/destroy', to: 'items/items#destroy'
     post 'api_stores/show/items/update', to: 'items/items#update'
     post 'api_stores/show/items', to: 'items/items#create'
@@ -70,10 +72,11 @@ Rails.application.routes.draw do
     post 'api_stores/show/item/comment/likes/update', to: 'like_comment_item#update'
   
     # ##9:Cart element
-    get 'carts', to: 'carts/cart#index'
+    get 'carts', to: 'carts/carts#index'
     get 'cart/:user_id', to: 'carts/carts#show' ## => User_id , a Client
     post 'cart/new', to: 'carts/carts#create' ## => required: cart_id, new_data
-    post 'cart/destroy', to: 'carts/carts#destroy' ## => required: cart_id
+    delete 'cart/delete/:id', to: 'carts/carts#destroy' ## => required: cart_id
+    post 'cart/update/:id', to: 'carts/carts#update'
     post 'cart/update', to: 'carts/carts#update' ## => required: cart_id, new_data
   
     # ##10:Google Places, Map
@@ -91,7 +94,6 @@ Rails.application.routes.draw do
     # ##12:Users
     post 'users/list', to: 'get_users#index'
     post 'users/list/show', to: 'get_users#show'
-
 
     # ##13:Currency
     get 'currencies', to: 'currencies/currencies#index'
@@ -178,4 +180,9 @@ Rails.application.routes.draw do
     delete 'color/:id', to: 'attributes/colors#delete'
     post 'color', to: 'attributes/colors#create'
 
+    # ##26:Search Suggestion
+    get 'user/:user_id/search_suggestions', to: 'search_suggestions/search_suggestions#index'
+    delete 'user/:user_id/search_suggestions/:id', to: 'search_suggestions/search_suggestions#delete'
+    post 'user/:user_id/search_suggestion/new', to: 'search_suggestions/search_suggestions#create'
+    post 'user/:user_id/search_suggestion/search', to: 'search_suggestions/search_suggestions#search'
 end

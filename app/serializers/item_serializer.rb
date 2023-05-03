@@ -1,5 +1,5 @@
 class ItemSerializer < ActiveModel::Serializer
-  attributes :id, :names, :mainName, :description, :store_id, :currency, :quantity, :updated_at, :created_at, :price,
+  attributes :id, :names, :main_name, :description, :store_id, :currency, :quantity, :updated_at, :created_at, :price,
              :items_images, :item_categories, :item_attributes
 
   def item_categories

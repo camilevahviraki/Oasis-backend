@@ -1,5 +1,5 @@
 class SimpleItemSerializer < ActiveModel::Serializer
-    attributes :id, :mainName, :description, :store_id, :currency, :quantity, :price,
+    attributes :id, :main_name, :description, :store_id, :currency, :quantity, :price,
                :items_images,  
   
     def items_images

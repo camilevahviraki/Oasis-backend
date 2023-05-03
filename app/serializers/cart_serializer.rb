@@ -1,47 +1,45 @@
 class CartSerializer < ActiveModel::Serializer
-    attributes :id, :price, :quantity, :store_id, :item_id, :attributes, :cart_item
-
+    attributes :id, :price, :quantity, :store_id, :item_id, :cart_item, :item_attributes
     def cart_item
         item = Item.where(id: object.item_id)[0]
         return SimpleItemSerializer.new(item)
     end    
 
-    def attributes
+    def item_attributes
         attributes_arr = []
-        capacities = ItemCapacity.where(item_id: object.item_capacity_id)
-        sizes = ItemSize.where(item_id: object.item_material_id)
-        materials = ItemMaterial.where(item_id: object.item_size_id)
-        colors = ItemColor.where(item_id: object.item_color_id)
-    
-        if(capacities.length > 0)
-          cap_arr = []
-          capacities.each do |cap|
-            cap_arr << ItemCapacitiesSerializer.new(cap)
-          end  
+        capacities = nil
+        sizes = nil
+        color = nil
+        materials = nil
+        if object.item_capacity_id 
+          capacities = ItemCapacity.find(object.item_capacity_id)
+        end
+        if object.item_material_id
+          materials = ItemMaterial.find(object.item_material_id)
+        end
+        if object.item_size_id
+          sizes = ItemSize.find(object.item_size_id)
+        end
+        if object.item_color_id
+          colors = ItemColor.find(object.item_color_id)
+        end
+        if(capacities)
+          cap_arr = ItemCapacitiesSerializer.new(capacities)
           attributes_arr << {title: 'Capacity', values: cap_arr}
         end
     
-        if(sizes.length > 0)
-          cap_arr = []
-          sizes.each do |cap|
-            cap_arr << ItemSizesSerializer.new(cap)
-          end  
+        if(sizes)
+          cap_arr = ItemSizesSerializer.new(sizes)
           attributes_arr << {title: 'Size', values: cap_arr}
         end
     
-        if(colors.length > 0)
-          cap_arr = []
-          colors.each do |cap|
-            cap_arr << ItemColorsSerializer.new(cap)
-          end  
+        if(colors)
+          cap_arr = ItemColorsSerializer.new(colors)
           attributes_arr << {title: 'Color', values: cap_arr}
         end
     
-        if(materials.length > 0)
-          cap_arr = []
-          materials.each do |cap|
-            cap_arr << ItemMaterialsSerializer.new(cap)
-          end  
+        if(materials)
+          cap_arr = ItemMaterialsSerializer.new(materials)
           attributes_arr << {title: 'Material', values: cap_arr}
         end
         return attributes_arr

@@ -5,19 +5,21 @@ class Items::ItemsController < ApplicationController
     store_id = params[:store_id]
 
     data = []
+    store = Store.find_by(token_id: store_id)
+    if store
     if params[:category].nil? || params[:category] == 'all'
-      data = Item.where(store_id:)
+      data = Item.where(store_id: store.id)
     else
-      data = Item.where(store_id:, category_name: category)
+      data = Item.where(store_id: store.id, category_name: category)
     end 
-
+    end
     render json: data, each_serializer: ItemSerializer
   end
 
   def show
     item_id = params[:item_id]
 
-    item = Item.find(item_id)
+    item = Item.find_by(token_id: item_id)
 
     render json: item, serializer: ItemSerializer
   end

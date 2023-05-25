@@ -23,7 +23,7 @@ class Stores::StoreImagesController < ApplicationController
       end
     else
       render json: { message: 'Couldn\'t find image!' }
-    end    
+    end
   end
 
   def create
@@ -31,9 +31,9 @@ class Stores::StoreImagesController < ApplicationController
     @store = Store.find(store_id)
 
     if @store
-      @store_image = StoreImage.create(store_id: store_id)
+      @store_image = StoreImage.create(store_id:)
       @store_image.pictures.attach(params[:images])
-    
+
       if @store_image.pictures.attached?
         render json: { message: 'Images uploaded successfully' }
       else
@@ -41,6 +41,6 @@ class Stores::StoreImagesController < ApplicationController
       end
     else
       render json: { message: 'Couldn\'t find store!' }
-    end  
-  end  
+    end
+  end
 end

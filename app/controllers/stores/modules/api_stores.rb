@@ -18,7 +18,7 @@ module ApiStore
         render json: { message: 'created sucessfully', store_id: @store.id, step: 2 }
       else
         render json: { message: 'Error while attaching image', store_id: @store.id, step: 2 }
-      end  
+      end
     else
       render json: { message: 'Failed to create store' }
     end
@@ -60,14 +60,12 @@ module ApiStore
     @store_id = params[:store_id]
     coordinates = params[:places]
 
-    store  = Store.find(@store_id)
-    
+    store = Store.find(@store_id)
+
     if coordinates && store.update(coordinates: coordinates.to_json)
       render json: { message: 'Created successfully', store_id: params[:store_id], step: 5 }
     else
       render json: { message: 'Params error, Or did not provided coordinates', store_id: params[:store_id], step: 5 }
-    end  
-
-    
+    end
   end
 end

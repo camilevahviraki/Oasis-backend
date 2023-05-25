@@ -1,17 +1,16 @@
 class Items::ItemsController < ApplicationController
   def index
-
     category = params[:category]
     store_id = params[:store_id]
 
     data = []
     store = Store.find_by(token_id: store_id)
     if store
-    if params[:category].nil? || params[:category] == 'all'
-      data = Item.where(store_id: store.id)
-    else
-      data = Item.where(store_id: store.id, category_name: category)
-    end 
+      data = if params[:category].nil? || params[:category] == 'all'
+               Item.where(store_id: store.id)
+             else
+               Item.where(store_id: store.id, category_name: category)
+             end
     end
     render json: data, each_serializer: ItemSerializer
   end
@@ -37,7 +36,7 @@ class Items::ItemsController < ApplicationController
     @item = Item.new(
       store_id:,
       description:,
-      main_name: main_name,
+      main_name:,
       names:,
       price:,
       quantity:,
@@ -75,18 +74,18 @@ class Items::ItemsController < ApplicationController
     query = params[:query]
 
     data = []
-    if params[:category].nil? || params[:category] == 'all'
-      data = Item.where(store_id:).where(
-        "lower(main_name) LIKE :search OR lower(names) LIKE :search OR lower(description) LIKE :search ",
-        search: "%#{query.downcase}%"
-      )
-    else
-      data = Item.where(store_id:, category_name: category).where(
-        "lower(main_name) LIKE :search OR lower(names) LIKE :search OR lower(description) LIKE :search ",
-        search: "%#{query.downcase}%"
-      )
-    end 
+    data = if params[:category].nil? || params[:category] == 'all'
+             Item.where(store_id:).where(
+               'lower(main_name) LIKE :search OR lower(names) LIKE :search OR lower(description) LIKE :search ',
+               search: "%#{query.downcase}%"
+             )
+           else
+             Item.where(store_id:, category_name: category).where(
+               'lower(main_name) LIKE :search OR lower(names) LIKE :search OR lower(description) LIKE :search ',
+               search: "%#{query.downcase}%"
+             )
+           end
 
     render json: data, each_serializer: ItemSerializer
-  end  
+  end
 end

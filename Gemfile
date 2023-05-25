@@ -37,11 +37,11 @@ gem 'algoliasearch-rails'
 
 gem 'will_paginate'
 
-gem "searchkick"
+gem 'searchkick'
 
-gem "fluent-plugin-elasticsearch"
+gem 'fluent-plugin-elasticsearch'
 
-gem "elasticsearch", "< 7.5.0"
+gem 'elasticsearch', '< 7.5.0'
 
 # gem "opensearch-ruby"
 # Hotwire's SPA-like page accelerator [https://turbo.hotwired.dev]

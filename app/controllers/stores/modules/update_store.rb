@@ -16,12 +16,8 @@ module UpdateStore
     when 'country_id'
       @store.update_column(:country_id, new_value)
     when 'main_image'
-      if @store.image.attached?
-        @store.image.purge
-        @store.image.attach(new_value)
-      else
-        @store.image.attach(new_value)
-      end
+      @store.image.purge if @store.image.attached?
+      @store.image.attach(new_value)
     end
     render json: { message: "Updated #{field} correctly!" }
   end

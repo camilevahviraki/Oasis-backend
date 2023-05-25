@@ -13,39 +13,39 @@ class ItemSerializer < ActiveModel::Serializer
     materials = ItemMaterial.where(item_id: object.id)
     colors = ItemColor.where(item_id: object.id)
 
-    if(capacities.length > 0)
+    if capacities.length.positive?
       cap_arr = []
       capacities.each do |cap|
         cap_arr << ItemCapacitiesSerializer.new(cap)
-      end  
-      attributes_arr << {title: 'Capacity', values: cap_arr}
+      end
+      attributes_arr << { title: 'Capacity', values: cap_arr }
     end
 
-    if(sizes.length > 0)
+    if sizes.length.positive?
       cap_arr = []
       sizes.each do |cap|
         cap_arr << ItemSizesSerializer.new(cap)
-      end  
-      attributes_arr << {title: 'Size', values: cap_arr}
+      end
+      attributes_arr << { title: 'Size', values: cap_arr }
     end
 
-    if(colors.length > 0)
+    if colors.length.positive?
       cap_arr = []
       colors.each do |cap|
         cap_arr << ItemColorsSerializer.new(cap)
-      end  
-      attributes_arr << {title: 'Color', values: cap_arr}
+      end
+      attributes_arr << { title: 'Color', values: cap_arr }
     end
 
-    if(materials.length > 0)
+    if materials.length.positive?
       cap_arr = []
       materials.each do |cap|
         cap_arr << ItemMaterialsSerializer.new(cap)
-      end  
-      attributes_arr << {title: 'Material', values: cap_arr}
+      end
+      attributes_arr << { title: 'Material', values: cap_arr }
     end
-    return attributes_arr
-  end  
+    attributes_arr
+  end
 
   def items_images
     images = ItemImage.where(item_id: object.id)[0]

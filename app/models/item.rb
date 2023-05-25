@@ -22,15 +22,14 @@ class Item < ApplicationRecord
   end
 
   def generate_token
-  #   loop do
-  #     token = SecureRandom.hex(10)
-  #     break token unless Order.where(token_id: token).exists?
-  #   end
+    #   loop do
+    #     token = SecureRandom.hex(10)
+    #     break token unless Order.where(token_id: token).exists?
+    #   end
 
-    begin
+    loop do
       self.token_id = SecureRandom.hex(10)
-    end while self.class.exists?(token_id: token_id)
-
+      break unless self.class.exists?(token_id:)
+    end
   end
-  
 end

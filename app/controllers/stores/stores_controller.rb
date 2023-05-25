@@ -1,4 +1,3 @@
-
 require_relative 'modules/api_stores'
 require_relative 'modules/update_store'
 
@@ -20,7 +19,7 @@ class Stores::StoresController < ApplicationController
   def places
     stores = Store.all
     render json: stores, each_serializer: StorePlacesSerializer
-  end  
+  end
 
   def create
     @step = params[:step]

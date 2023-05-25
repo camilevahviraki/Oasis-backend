@@ -1,6 +1,6 @@
 class Attributes::ColorsController < ApplicationController
-    def index
-        @colors = Color.all
-        render json: @colors
-    end    
-end    
+  def index
+    @colors = Color.all
+    render json: @colors
+  end
+end

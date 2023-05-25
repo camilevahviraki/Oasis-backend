@@ -1,5 +1,13 @@
 class ApiStoresSerializer < ActiveModel::Serializer
-  attributes :id, :name, :country_id, :location, :country, :description, :user_id, :categories, :images_url, :main_image_url
+  attributes :id, :name, :token_id, :country_id, :location, :country, :description, :user_id, :categories, :images_url, :main_image_url, :coordinate
+
+  def coordinate
+    if object.coordinates
+      JSON.parse(object.coordinates)
+    else
+      nil
+    end    
+  end  
 
              def categories
                StoreCategory.where(store_id: object.id)

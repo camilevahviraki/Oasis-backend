@@ -24,6 +24,9 @@ Rails.application.routes.draw do
     post 'store/:user_id/api_stores/destroy', to: 'stores/stores#destroy'
     post 'store/update', to: 'stores/stores#update'
     post 'api_stores', to: 'stores/stores#create' # #new_store
+
+    # ##1_1: Stores Places
+    get 'places', to: 'stores/stores#places'
   
     # ##2: Comments Store
     get 'api_stores/show/comments', to: 'stores/comments#index' # #getlikes for Each
@@ -86,10 +89,19 @@ Rails.application.routes.draw do
     post 'place/update', to: 'places#update'
   
     # ##11:Orders
-    post 'orders', to: 'orders#index'
-    post 'orders/show', to: 'orders#create'
-    post 'orders/destroy', to: 'orders#destroy'
-    post 'orders/update', to: 'orders#update'
+    get 'orders/:user_id', to: 'orders/orders#index'
+    get 'orders/show/:token_id', to: 'orders/orders#show'
+    post 'orders/new', to: 'orders/orders#create'
+    post 'orders/:token_id/destination', to: 'orders/orders#destination'
+    post 'orders/:token_id/pay', to: 'orders/orders#pay'
+    post 'orders/destroy', to: 'orders/orders#destroy'
+    post 'orders/update', to: 'orders/orders#update'
+
+      # ##11:Orders_Items
+      post 'orders_items', to: 'orders_items/orders_items#index'
+      post 'orders_items/show', to: 'orders_items/orders_items#create'
+      post 'orders_items/destroy', to: 'orders_items/orders_items#destroy'
+      post 'orders_items/update', to: 'orders_items/orders_items#update'
 
     # ##12:Users
     post 'users/list', to: 'get_users#index'

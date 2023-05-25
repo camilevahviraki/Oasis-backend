@@ -14,6 +14,8 @@ gem 'pg', '~> 1.1'
 
 gem 'rack-cors'
 
+gem 'stripe'
+
 gem 'devise'
 
 gem 'devise-jwt'

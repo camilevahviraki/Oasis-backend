@@ -14,6 +14,8 @@ gem 'pg', '~> 1.1'
 
 gem 'rack-cors'
 
+gem 'stripe'
+
 gem 'devise'
 
 gem 'devise-jwt'
@@ -31,6 +33,17 @@ gem 'puma', '~> 5.0'
 # Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
 gem 'importmap-rails'
 
+gem 'algoliasearch-rails'
+
+gem 'will_paginate'
+
+gem 'searchkick'
+
+gem 'fluent-plugin-elasticsearch'
+
+gem 'elasticsearch', '< 7.5.0'
+
+# gem "opensearch-ruby"
 # Hotwire's SPA-like page accelerator [https://turbo.hotwired.dev]
 gem 'turbo-rails'
 

@@ -1,22 +1,24 @@
 class Items::ItemsController < ApplicationController
   def index
-    # category_id = params[:category_id]
-    # category = params[:category]
+    category = params[:category]
     store_id = params[:store_id]
 
-    #  data =  Item.left_outer_joins(:item_categories)
-    #     .select('items.*, item_categories.*, item_categories.id as category_id')
-    #     .where("items.store_id = #{store_id}")
-    #  .where("item_categories.name = #{category}")
-    data = Item.where(store_id:)
-
+    data = []
+    store = Store.find_by(token_id: store_id)
+    if store
+      data = if params[:category].nil? || params[:category] == 'all'
+               Item.where(store_id: store.id)
+             else
+               Item.where(store_id: store.id, category_name: category)
+             end
+    end
     render json: data, each_serializer: ItemSerializer
   end
 
   def show
     item_id = params[:item_id]
 
-    item = Item.find(item_id)
+    item = Item.find_by(token_id: item_id)
 
     render json: item, serializer: ItemSerializer
   end
@@ -29,14 +31,16 @@ class Items::ItemsController < ApplicationController
     names = params[:names]
     price = params[:price]
     quantity = params[:quantity]
+    category_name = params[:category]
 
     @item = Item.new(
       store_id:,
       description:,
-      mainName: main_name,
+      main_name:,
       names:,
       price:,
-      quantity:
+      quantity:,
+      category_name:
     )
 
     category = ItemCategoriesList.where(name: params[:category])[0]
@@ -62,5 +66,26 @@ class Items::ItemsController < ApplicationController
     else
       render json: { message: 'Failed to create store' }
     end
+  end
+
+  def search
+    store_id = params[:store_id]
+    category = params[:category]
+    query = params[:query]
+
+    data = []
+    data = if params[:category].nil? || params[:category] == 'all'
+             Item.where(store_id:).where(
+               'lower(main_name) LIKE :search OR lower(names) LIKE :search OR lower(description) LIKE :search ',
+               search: "%#{query.downcase}%"
+             )
+           else
+             Item.where(store_id:, category_name: category).where(
+               'lower(main_name) LIKE :search OR lower(names) LIKE :search OR lower(description) LIKE :search ',
+               search: "%#{query.downcase}%"
+             )
+           end
+
+    render json: data, each_serializer: ItemSerializer
   end
 end

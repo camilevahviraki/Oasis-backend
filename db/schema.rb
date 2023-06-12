@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_02_16_165905) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_24_215905) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -42,6 +42,13 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_16_165905) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+  create_table "capacity_units", force: :cascade do |t|
+    t.string "name"
+    t.string "code"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "cart_items", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -60,6 +67,19 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_16_165905) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
+    t.bigint "store_id", null: false
+    t.bigint "item_id", null: false
+    t.bigint "item_capacity_id"
+    t.bigint "item_color_id"
+    t.bigint "item_material_id"
+    t.bigint "item_size_id"
+    t.integer "quantity"
+    t.index ["item_capacity_id"], name: "index_carts_on_item_capacity_id"
+    t.index ["item_color_id"], name: "index_carts_on_item_color_id"
+    t.index ["item_id"], name: "index_carts_on_item_id"
+    t.index ["item_material_id"], name: "index_carts_on_item_material_id"
+    t.index ["item_size_id"], name: "index_carts_on_item_size_id"
+    t.index ["store_id"], name: "index_carts_on_store_id"
     t.index ["user_id"], name: "index_carts_on_user_id"
   end
 
@@ -71,6 +91,13 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_16_165905) do
     t.datetime "updated_at", null: false
     t.bigint "country_id"
     t.index ["country_id"], name: "index_cities_on_country_id"
+  end
+
+  create_table "colors", force: :cascade do |t|
+    t.string "name"
+    t.string "hex_code"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "comments_items", force: :cascade do |t|
@@ -116,6 +143,28 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_16_165905) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "discounts", force: :cascade do |t|
+    t.string "new_price"
+    t.string "end_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "item_id", null: false
+    t.index ["item_id"], name: "index_discounts_on_item_id"
+  end
+
+  create_table "item_capacities", force: :cascade do |t|
+    t.string "name"
+    t.string "value"
+    t.string "code"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "item_id", null: false
+    t.bigint "capacity_unit_id", null: false
+    t.string "image"
+    t.index ["capacity_unit_id"], name: "index_item_capacities_on_capacity_unit_id"
+    t.index ["item_id"], name: "index_item_capacities_on_item_id"
+  end
+
   create_table "item_categories", force: :cascade do |t|
     t.string "name"
     t.text "icon"
@@ -133,6 +182,18 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_16_165905) do
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "item_colors", force: :cascade do |t|
+    t.string "name"
+    t.string "hex_code"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "item_id", null: false
+    t.bigint "color_id", null: false
+    t.string "image"
+    t.index ["color_id"], name: "index_item_colors_on_color_id"
+    t.index ["item_id"], name: "index_item_colors_on_item_id"
   end
 
   create_table "item_comment_likes", force: :cascade do |t|
@@ -172,9 +233,35 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_16_165905) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "item_materials", force: :cascade do |t|
+    t.string "name"
+    t.string "code"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "item_id", null: false
+    t.bigint "material_id", null: false
+    t.string "image"
+    t.index ["item_id"], name: "index_item_materials_on_item_id"
+    t.index ["material_id"], name: "index_item_materials_on_material_id"
+  end
+
+  create_table "item_sizes", force: :cascade do |t|
+    t.string "name"
+    t.string "value"
+    t.string "code"
+    t.string "size_type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "item_id", null: false
+    t.bigint "size_id", null: false
+    t.string "image"
+    t.index ["item_id"], name: "index_item_sizes_on_item_id"
+    t.index ["size_id"], name: "index_item_sizes_on_size_id"
+  end
+
   create_table "items", force: :cascade do |t|
     t.text "names"
-    t.string "mainName"
+    t.string "main_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "store_id"
@@ -183,6 +270,13 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_16_165905) do
     t.string "currency"
     t.text "description"
     t.integer "quantity"
+    t.string "shipping_options"
+    t.string "return_policy"
+    t.string "availability"
+    t.string "category_name"
+    t.bigint "search_suggestion_id"
+    t.string "token_id"
+    t.index ["search_suggestion_id"], name: "index_items_on_search_suggestion_id"
     t.index ["store_id"], name: "index_items_on_store_id"
   end
 
@@ -209,6 +303,13 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_16_165905) do
     t.index ["store_id"], name: "index_likes_stores_on_store_id"
   end
 
+  create_table "materials", force: :cascade do |t|
+    t.string "name"
+    t.string "code"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "order_items", force: :cascade do |t|
     t.integer "exchange"
     t.text "currency"
@@ -219,6 +320,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_16_165905) do
     t.bigint "item_id"
     t.bigint "order_id"
     t.bigint "currency_id"
+    t.text "item_attributes"
     t.index ["currency_id"], name: "index_order_items_on_currency_id"
     t.index ["item_id"], name: "index_order_items_on_item_id"
     t.index ["order_id"], name: "index_order_items_on_order_id"
@@ -231,6 +333,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_16_165905) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
+    t.string "token_id"
+    t.string "paid"
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
@@ -243,6 +347,20 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_16_165905) do
     t.datetime "updated_at", null: false
     t.bigint "store_id"
     t.index ["store_id"], name: "index_places_on_store_id"
+  end
+
+  create_table "search_suggestions", force: :cascade do |t|
+    t.string "query_name"
+    t.string "table_name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "sizes", force: :cascade do |t|
+    t.string "name"
+    t.string "code"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "store_categories", force: :cascade do |t|
@@ -283,7 +401,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_16_165905) do
     t.datetime "updated_at", null: false
     t.bigint "user_id"
     t.bigint "country_id"
+    t.string "image"
+    t.bigint "search_suggestion_id"
+    t.string "coordinates"
+    t.string "token_id"
     t.index ["country_id"], name: "index_stores_on_country_id"
+    t.index ["search_suggestion_id"], name: "index_stores_on_search_suggestion_id"
     t.index ["user_id"], name: "index_stores_on_user_id"
   end
 
@@ -300,10 +423,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_16_165905) do
     t.string "jti", null: false
     t.string "avatar"
     t.bigint "country_id"
+    t.bigint "search_suggestion_id"
     t.index ["country_id"], name: "index_users_on_country_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["jti"], name: "index_users_on_jti", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["search_suggestion_id"], name: "index_users_on_search_suggestion_id"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
@@ -311,15 +436,31 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_16_165905) do
   add_foreign_key "cart_items", "carts"
   add_foreign_key "cart_items", "items"
   add_foreign_key "cart_items", "stores"
+  add_foreign_key "carts", "item_capacities"
+  add_foreign_key "carts", "item_colors"
+  add_foreign_key "carts", "item_materials"
+  add_foreign_key "carts", "item_sizes"
+  add_foreign_key "carts", "items"
+  add_foreign_key "carts", "stores"
   add_foreign_key "carts", "users"
   add_foreign_key "cities", "countries"
   add_foreign_key "comments_stores", "stores"
+  add_foreign_key "discounts", "items"
+  add_foreign_key "item_capacities", "capacity_units"
+  add_foreign_key "item_capacities", "items"
   add_foreign_key "item_categories", "item_categories_lists"
   add_foreign_key "item_categories", "items"
+  add_foreign_key "item_colors", "colors"
+  add_foreign_key "item_colors", "items"
   add_foreign_key "item_comment_likes", "item_comments"
   add_foreign_key "item_comment_replies", "item_comments"
   add_foreign_key "item_comments", "items"
   add_foreign_key "item_images", "items"
+  add_foreign_key "item_materials", "items"
+  add_foreign_key "item_materials", "materials"
+  add_foreign_key "item_sizes", "items"
+  add_foreign_key "item_sizes", "sizes"
+  add_foreign_key "items", "search_suggestions"
   add_foreign_key "items", "stores"
   add_foreign_key "likes_items", "items"
   add_foreign_key "likes_stores", "stores"
@@ -333,6 +474,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_16_165905) do
   add_foreign_key "store_categories", "stores"
   add_foreign_key "store_images", "stores"
   add_foreign_key "stores", "countries"
+  add_foreign_key "stores", "search_suggestions"
   add_foreign_key "stores", "users"
   add_foreign_key "users", "countries"
+  add_foreign_key "users", "search_suggestions"
 end

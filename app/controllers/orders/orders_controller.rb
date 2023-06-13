@@ -1,6 +1,8 @@
 require 'stripe'
+require_relative 'order_pay/order_pay'
 
 class Orders::OrdersController < ApplicationController
+  include OrderPay
   def index
     user_id = params[:user_id]
     orders = Order.where(user_id:)
@@ -52,8 +54,6 @@ class Orders::OrdersController < ApplicationController
       render json: { message: 'Error while adding destination!', step: 1 }
     end
   end
-
-  def pay; end
 
   def delete; end
 

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_24_215905) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_26_195219) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -335,6 +335,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_24_215905) do
     t.bigint "user_id"
     t.string "token_id"
     t.string "paid"
+    t.string "payed"
+    t.string "payment_intent"
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
 

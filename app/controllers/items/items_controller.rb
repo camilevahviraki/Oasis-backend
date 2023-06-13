@@ -59,9 +59,9 @@ class Items::ItemsController < ApplicationController
       @item_image.pictures.attach(pictures)
 
       if @item_image.pictures.attached?
-        render json: { message: 'created sucessfully', item_id: @item.id }
+        render json: { message: 'created sucessfully', item_id: @item.token_id }
       else
-        render json: { message: 'Error while attaching Images', item_id: @item.id }
+        render json: { message: 'Error while attaching Images', item_id: @item.token_id }
       end
     else
       render json: { message: 'Failed to create store' }

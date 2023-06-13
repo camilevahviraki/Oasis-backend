@@ -93,7 +93,8 @@ Rails.application.routes.draw do
     get 'orders/show/:token_id', to: 'orders/orders#show'
     post 'orders/new', to: 'orders/orders#create'
     post 'orders/:token_id/destination', to: 'orders/orders#destination'
-    post 'orders/:token_id/pay', to: 'orders/orders#pay'
+    post 'orders/:token_id/create-payment-intent', to: 'orders/orders#create_payment_intent'
+    post 'orders/:token_id/webhook', to: 'orders/orders#webhook'
     post 'orders/destroy', to: 'orders/orders#destroy'
     post 'orders/update', to: 'orders/orders#update'
 

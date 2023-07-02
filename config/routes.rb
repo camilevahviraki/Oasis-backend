@@ -15,6 +15,7 @@ Rails.application.routes.draw do
 
     # ##0: Home page
     get 'user/:user_id/home_page', to: 'home_page/home#index'
+    get 'user/:user_id/welcome_page', to: 'home_page/home#welcome_page'
     post 'user/:user_id/home_page/search', to: 'home_page/home#search'
 
     # ##1: Stores
@@ -48,7 +49,9 @@ Rails.application.routes.draw do
     # ##5:Items for a Store
     get 'api_stores/:store_id/items/:category', to: 'items/items#index'
     get 'api_stores/:store_id/item/:item_id', to: 'items/items#show'
+    post 'api_stores/:store_id/item/:item_id/update_quantity', to: 'items/items#update_quantity'
     post 'api_stores/show/items/new', to: 'items/items#new'
+    post 'api_stores/show/items/mass_delete', to: 'items/items#mass_delete'
     post '/api_stores/:store_id/items/:category/search', to: 'items/items#search'
     post 'api_stores/show/items/destroy', to: 'items/items#destroy'
     post 'api_stores/show/items/update', to: 'items/items#update'
@@ -128,6 +131,7 @@ Rails.application.routes.draw do
     delete 'stores_category_list/:id', to: 'categories_list/stores_categories_list#delete' ## for admin only
     put 'stores_category_list/:id', to: 'categories_list/stores_categories_list#update' ## for admin only
     post 'stores_categories_list', to: 'categories_list/stores_categories_list#create' ## for admin only
+    post 'stores_categories_list/attach_image', to: 'categories_list/stores_categories_list#attach_image' ## for admin only
 
     # ##16:Stores_categories
     get 'store/:store_id/stores_categories', to: 'store_categories/stores_categories#index'
@@ -198,4 +202,13 @@ Rails.application.routes.draw do
     delete 'user/:user_id/search_suggestions/:id', to: 'search_suggestions/search_suggestions#delete'
     post 'user/:user_id/search_suggestion/new', to: 'search_suggestions/search_suggestions#create'
     post 'user/:user_id/search_suggestion/search', to: 'search_suggestions/search_suggestions#search'
+
+    # ##27:Store Sales element
+    get 'store_sales', to: 'store_sales/store_sales#index'
+    get 'store_sale/:store_id', to: 'store_sales/store_sales#show' ## => Store_id , The Owner
+    post 'store_sale/new', to: 'store_sales/store_sales#create' ## => required: store_sale_id, new_data
+    delete 'store_sale/delete/:id', to: 'store_sales/store_sales#destroy' ## => required: store_sale_id
+    post 'store_sale/update/:id', to: 'store_sales/store_sales#update'
+    post 'store_sale/update', to: 'store_sales/store_sales#update' ## => required: store_sale_id, new_data
+    get 'store_sale/:store_id/graph', to: 'store_sales/store_sales#graph'
 end

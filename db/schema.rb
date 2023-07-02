@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_26_195219) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_01_200139) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -356,6 +356,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_26_195219) do
     t.string "table_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_search_suggestions_on_user_id"
   end
 
   create_table "sizes", force: :cascade do |t|
@@ -381,6 +383,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_26_195219) do
     t.text "icon"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "image"
   end
 
   create_table "store_images", force: :cascade do |t|
@@ -390,6 +393,23 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_26_195219) do
     t.datetime "updated_at", null: false
     t.bigint "store_id"
     t.index ["store_id"], name: "index_store_images_on_store_id"
+  end
+
+  create_table "store_sales", force: :cascade do |t|
+    t.string "adress"
+    t.integer "unit_price"
+    t.integer "price_paid"
+    t.integer "quantity"
+    t.integer "item_id"
+    t.integer "item_capacity_id"
+    t.integer "item_color_id"
+    t.integer "item_material_id"
+    t.integer "item_size_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "store_id", null: false
+    t.string "token_id"
+    t.index ["store_id"], name: "index_store_sales_on_store_id"
   end
 
   create_table "stores", force: :cascade do |t|
@@ -472,9 +492,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_26_195219) do
   add_foreign_key "order_items", "stores"
   add_foreign_key "orders", "users"
   add_foreign_key "places", "stores"
+  add_foreign_key "search_suggestions", "users"
   add_foreign_key "store_categories", "store_categories_lists"
   add_foreign_key "store_categories", "stores"
   add_foreign_key "store_images", "stores"
+  add_foreign_key "store_sales", "stores"
   add_foreign_key "stores", "countries"
   add_foreign_key "stores", "search_suggestions"
   add_foreign_key "stores", "users"

@@ -23,6 +23,19 @@ class Items::ItemsController < ApplicationController
     render json: item, serializer: ItemSerializer
   end
 
+  def update_quantity
+    item_id = params[:item_id]
+    quantity = params[:quantity]
+
+    item = Item.find_by(token_id: item_id)
+
+    if item.update(quantity: quantity.to_i)
+      render json: {message: "Updated successfully"}
+    else
+      render json: {message: "Error updating quantity"}
+    end
+  end
+
   def create
     store_id = params[:store_id]
     description = params[:description]
@@ -46,13 +59,13 @@ class Items::ItemsController < ApplicationController
     category = ItemCategoriesList.where(name: params[:category])[0]
 
     if @item.save
-      unless params[:category].nil? || params[:category] == 'all'
-        ItemCategory.create(
-          name: params[:category],
-          item_id: @item.id,
-          item_categories_list_id: category.id
-        )
-      end
+      # unless params[:category].nil? || params[:category] == 'all'
+      #   ItemCategory.create(
+      #     name: params[:category],
+      #     item_id: @item.id,
+      #     item_categories_list_id: category.id
+      #   )
+      # end
 
       @item_image = ItemImage.create(item_id: @item.id)
 
@@ -87,5 +100,16 @@ class Items::ItemsController < ApplicationController
            end
 
     render json: data, each_serializer: ItemSerializer
+  end
+
+  def mass_delete
+    ids = params[:ids]
+
+    ids.each do |id|
+      product = Item.find_by(id: id)
+      product.destroy if product
+    end
+    
+    render json: {message: 'Items deleted successfully' }
   end
 end

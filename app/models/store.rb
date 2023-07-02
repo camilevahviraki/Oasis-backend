@@ -13,8 +13,8 @@ class Store < ApplicationRecord
   has_many :store_categories, foreign_key: 'store_id', dependent: :destroy
   has_many :store_images, foreign_key: 'store_id', dependent: :destroy
   has_many :carts, foreign_key: 'store_id', dependent: :destroy
-  has_many :search_suggestion, foreign_key: 'user_id', dependent: :destroy
   has_many :order_items, foreign_key: 'store_id', dependent: :destroy
+  has_many :store_sales, foreign_key: 'store_id', dependent: :destroy
 
   has_one_attached :image
 

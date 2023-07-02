@@ -12,7 +12,7 @@ class Item < ApplicationRecord
   has_many :item_materials, foreign_key: 'item_id', dependent: :destroy
   has_many :carts, foreign_key: 'item_id', dependent: :destroy
   has_many :order_items, foreign_key: 'item_id', dependent: :destroy
-  has_many :search_suggestion, foreign_key: 'item_id', dependent: :destroy
+  has_many :store_sales, foreign_key: 'store_id', dependent: :destroy
 
   private
 

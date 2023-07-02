@@ -1,6 +1,7 @@
-class CartSerializer < ActiveModel::Serializer
-  attributes :id, :price, :quantity, :store_id, :item_id, :cart_item, :item_attributes
-  def cart_item
+class StoreSaleSerializer < ActiveModel::Serializer
+  attributes :id, :quantity, :store_id, :item_id, :item_data, :item_attributes, :adress, :unit_price, :price_paid, :quantity,
+             :created_at, :updated_at
+  def item_data
     item = Item.where(id: object.item_id)[0]
     SimpleItemSerializer.new(item)
   end

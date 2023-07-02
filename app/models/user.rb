@@ -14,6 +14,8 @@ class User < ApplicationRecord
   has_one_attached :avatar
 
   def avatar_url
+    return unless avatar.attached?
+
     avatar.attachment.url
   end
 end

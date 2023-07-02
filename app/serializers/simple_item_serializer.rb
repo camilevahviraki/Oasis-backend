@@ -1,5 +1,5 @@
 class SimpleItemSerializer < ActiveModel::Serializer
-  attributes :id, :main_name, :description, :store_id, :currency, :quantity, :price,
+  attributes :id, :main_name, :description, :store_id, :currency, :quantity, :price, :created_at,
              :items_images,
              def items_images
                images = ItemImage.where(item_id: object.id)[0]

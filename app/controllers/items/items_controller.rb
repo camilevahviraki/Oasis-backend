@@ -30,9 +30,9 @@ class Items::ItemsController < ApplicationController
     item = Item.find_by(token_id: item_id)
 
     if item.update(quantity: quantity.to_i)
-      render json: {message: "Updated successfully"}
+      render json: { message: 'Updated successfully' }
     else
-      render json: {message: "Error updating quantity"}
+      render json: { message: 'Error updating quantity' }
     end
   end
 
@@ -56,7 +56,7 @@ class Items::ItemsController < ApplicationController
       category_name:
     )
 
-    category = ItemCategoriesList.where(name: params[:category])[0]
+    ItemCategoriesList.where(name: params[:category])[0]
 
     if @item.save
       # unless params[:category].nil? || params[:category] == 'all'
@@ -85,8 +85,6 @@ class Items::ItemsController < ApplicationController
     store_id = params[:store_id]
     category = params[:category]
     query = params[:query]
-
-    data = []
     data = if params[:category].nil? || params[:category] == 'all'
              Item.where(store_id:).where(
                'lower(main_name) LIKE :search OR lower(names) LIKE :search OR lower(description) LIKE :search ',
@@ -106,10 +104,10 @@ class Items::ItemsController < ApplicationController
     ids = params[:ids]
 
     ids.each do |id|
-      product = Item.find_by(id: id)
-      product.destroy if product
+      product = Item.find_by(id:)
+      product&.destroy
     end
-    
-    render json: {message: 'Items deleted successfully' }
+
+    render json: { message: 'Items deleted successfully' }
   end
 end

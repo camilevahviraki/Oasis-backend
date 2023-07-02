@@ -14,10 +14,8 @@ class User < ApplicationRecord
   has_one_attached :avatar
 
   def avatar_url
-    if avatar.attached?
-      avatar.attachment.url
-    else
-      nil
-    end  
+    return unless avatar.attached?
+
+    avatar.attachment.url
   end
 end

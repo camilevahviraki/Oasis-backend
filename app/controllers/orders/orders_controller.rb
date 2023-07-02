@@ -16,7 +16,7 @@ class Orders::OrdersController < ApplicationController
   end
 
   def create
-    destination = params[:destination]
+    params[:destination]
     user_id = params[:user_id]
     order_items = params[:order_items]
 

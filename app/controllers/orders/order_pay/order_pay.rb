@@ -4,7 +4,6 @@ Stripe.api_key = 'sk_test_51MvQIxCAdTB9DdU7qONKowMEa7shHYb6ei3LerniRt21uETvOPeWN
 
 module OrderPay
   def create_payment_intent
-
     payment_method_type = params[:paymentMethodType]
     currency = params[:currency]
     amount = data[:amount]
@@ -17,7 +16,7 @@ module OrderPay
       payment_method_types: payment_method_type == 'link' ? %w[link card] : [payment_method_type],
       amount:,
       currency:,
-      payment_method_options:,
+      payment_method_options:
     }
 
     if payment_method_type == 'acss_debit'
@@ -47,14 +46,14 @@ module OrderPay
   end
 
   def confirm_payment
-     token_id = params[:token_id]
-     @order = Order.find_by(token_id:)
-     if @order.update(payed: 'true')
+    token_id = params[:token_id]
+    @order = Order.find_by(token_id:)
+    if @order.update(payed: 'true')
       render json: { message: 'Payment confirmed successfully!' }
     else
       render json: { error: 'Couldnt confirm payment' }
-    end  
-  end  
+    end
+  end
 
   def webhook
     webhook_secret = ENV.fetch('STRIPE_WEBHOOK_SECRET', nil)
@@ -70,23 +69,22 @@ module OrderPay
         event = Stripe::Webhook.construct_event(
           payload, sig_header, webhook_secret
         )
-      rescue JSON::ParserError => e
+      rescue JSON::ParserError
         render json: { error: '⚠️  Webhook failed. Unexpected error' }
         return
-      rescue Stripe::SignatureVerificationError => e
+      rescue Stripe::SignatureVerificationError
         render json: { error: '⚠️  Webhook signature verification failed.' }
         return
       end
     end
 
     if event.type == 'payment_intent.succeeded'
-      payment_intent = event.data.object
+      event.data.object
       render json: { message: '💰 Payment received!' }
     end
-    if event.type == 'payment_intent.payment_failed'
-      payment_intent = event.data.object
-      render json: { message: '❌ Payment failed.' }
-    end
-  end
+    return unless event.type == 'payment_intent.payment_failed'
 
+    event.data.object
+    render json: { message: '❌ Payment failed.' }
+  end
 end

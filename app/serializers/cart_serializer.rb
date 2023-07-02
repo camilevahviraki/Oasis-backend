@@ -9,7 +9,6 @@ class CartSerializer < ActiveModel::Serializer
     attributes_arr = []
     capacities = nil
     sizes = nil
-    color = nil
     materials = nil
     capacities = ItemCapacity.find(object.item_capacity_id) if object.item_capacity_id
     materials = ItemMaterial.find(object.item_material_id) if object.item_material_id

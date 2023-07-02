@@ -1,11 +1,9 @@
 class StoreCategoriesListSerializer < ActiveModel::Serializer
-    attributes :id, :name, :image_url, :icon
+  attributes :id, :name, :image_url, :icon
 
-    def image_url
-      if object.image.attached?
-        return object.image.attachment.url
-      else
-        return nil
-      end
-    end    
+  def image_url
+    return object.image.attachment.url if object.image.attached?
+
+    nil
+  end
 end

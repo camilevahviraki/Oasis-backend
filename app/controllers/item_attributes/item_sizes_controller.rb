@@ -1,6 +1,7 @@
 class ItemAttributes::ItemSizesController < ApplicationController
   def index
-    @item_sizes = ItemSize.where(item_id: params[:item_id])
+    item = Item.find_by(token_id: params[:item_id])
+    @item_sizes = ItemSize.where(item_id: item.id)
     render json: @item_sizes, each_serializer: ItemSizesSerializer
   end
 
@@ -11,10 +12,12 @@ class ItemAttributes::ItemSizesController < ApplicationController
     size_id = params[:size_id]
     value = params[:value]
 
+    item = Item.find_by(token_id: item_id)
+
     new_size = ItemSize.new(
       name:,
       code:,
-      item_id:,
+      item_id: item.id,
       size_id:,
       value:
     )

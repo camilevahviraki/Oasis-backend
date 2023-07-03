@@ -1,6 +1,7 @@
 class ItemAttributes::ItemCapacitiesController < ApplicationController
   def index
-    @item_capacities = ItemCapacity.where(item_id: params[:item_id])
+    item = Item.find_by(token_id: params[:item_id])
+    @item_capacities = ItemCapacity.where(item_id: item.id)
     render json: @item_capacities, each_serializer: ItemCapacitiesSerializer
   end
 
@@ -11,10 +12,12 @@ class ItemAttributes::ItemCapacitiesController < ApplicationController
     capacity_unit_id = params[:capacity_unit_id]
     value = params[:value]
 
+    item = Item.find_by(token_id: item_id)
+
     new_capacity = ItemCapacity.new(
       name:,
       code:,
-      item_id:,
+      item_id: item.id,
       capacity_unit_id:,
       value:
     )

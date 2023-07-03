@@ -36,5 +36,5 @@ class Countries::CountriesController < ApplicationController
     else
       render json: {message: "Error"}
     end 
-  end 
+  end
 end

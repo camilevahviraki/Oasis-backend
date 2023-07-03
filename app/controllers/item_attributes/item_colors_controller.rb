@@ -1,6 +1,6 @@
 class ItemAttributes::ItemColorsController < ApplicationController
   def index
-    item  = Item.find_by(token_id: params[:item_id])
+    item = Item.find_by(token_id: params[:item_id])
     @item_colors = ItemColor.where(item_id: item.id)
     render json: @item_colors, each_serializer: ItemColorsSerializer
   end
@@ -11,7 +11,7 @@ class ItemAttributes::ItemColorsController < ApplicationController
     token_id = params[:item_id]
     color_id = params[:id]
 
-    item  = Item.find_by(token_id: token_id)
+    item = Item.find_by(token_id:)
 
     new_color = ItemColor.new(
       name:,

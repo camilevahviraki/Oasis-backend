@@ -83,6 +83,4 @@ test:
 #
 production:
   <<: *default
-  database: vitron_first_backend_r_production
-  username: vitron_first_backend_r
-  password: <%= ENV["VITRON_FIRST_BACKEND_R_DATABASE_PASSWORD"] %>
+  url: <%= ENV["OASIS_DATABASE_URL"] %>

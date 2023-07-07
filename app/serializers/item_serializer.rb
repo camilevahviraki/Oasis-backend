@@ -1,6 +1,6 @@
 class ItemSerializer < ActiveModel::Serializer
   attributes :id, :names, :main_name, :token_id, :description, :store_id, :currency, :quantity, :updated_at, :created_at, :price,
-             :items_images, :item_categories, :item_attributes
+             :items_images, :item_categories, :item_attributes, :store_token
 
   def item_categories
     ItemCategory.where(item_id: object.id)

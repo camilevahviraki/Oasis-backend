@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_01_200139) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_06_153208) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -276,6 +276,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_01_200139) do
     t.string "category_name"
     t.bigint "search_suggestion_id"
     t.string "token_id"
+    t.string "store_token"
     t.index ["search_suggestion_id"], name: "index_items_on_search_suggestion_id"
     t.index ["store_id"], name: "index_items_on_store_id"
   end

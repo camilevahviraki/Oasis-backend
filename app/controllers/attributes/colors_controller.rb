@@ -7,10 +7,10 @@ class Attributes::ColorsController < ApplicationController
   def create
     color_data = params[:colorData]
     if Color.create(color_data)
-      render json: {message: "Created Successfully"}
+      render json: { message: 'Created Successfully' }
     else
-      render json: {message: "Error"}
-    end  
+      render json: { message: 'Error' }
+    end
   end
 
   def update
@@ -19,22 +19,22 @@ class Attributes::ColorsController < ApplicationController
     color = Color.find(id)
     if color
       if color.update(color_data)
-        render json: {message: "Updated Successfully"}
+        render json: { message: 'Updated Successfully' }
       else
-        render json: {message: "Could nt update"}
+        render json: { message: 'Could nt update' }
       end
     else
-      render json: {message: "Error"}
-    end 
+      render json: { message: 'Error' }
+    end
   end
 
   def delete
     id = params[:id]
     color = Color.find(id)
     if color.destroy
-        render json: {message: "Deleted successfully"}
+      render json: { message: 'Deleted successfully' }
     else
-      render json: {message: "Error"}
-    end 
+      render json: { message: 'Error' }
+    end
   end
 end

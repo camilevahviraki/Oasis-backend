@@ -7,10 +7,10 @@ class Attributes::SizesController < ApplicationController
   def create
     size_data = params[:sizeData]
     if Size.create(size_data)
-      render json: {message: "Created Successfully"}
+      render json: { message: 'Created Successfully' }
     else
-      render json: {message: "Error"}
-    end  
+      render json: { message: 'Error' }
+    end
   end
 
   def update
@@ -19,22 +19,22 @@ class Attributes::SizesController < ApplicationController
     size = Size.find(id)
     if size
       if size.update(size_data)
-        render json: {message: "Updated Successfully"}
+        render json: { message: 'Updated Successfully' }
       else
-        render json: {message: "Could nt update"}
+        render json: { message: 'Could nt update' }
       end
     else
-      render json: {message: "Error"}
-    end 
+      render json: { message: 'Error' }
+    end
   end
 
   def delete
     id = params[:id]
     size = Size.find(id)
     if size.destroy
-        render json: {message: "Deleted successfully"}
+      render json: { message: 'Deleted successfully' }
     else
-      render json: {message: "Error"}
-    end 
+      render json: { message: 'Error' }
+    end
   end
 end

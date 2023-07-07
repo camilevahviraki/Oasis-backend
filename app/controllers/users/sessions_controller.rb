@@ -16,7 +16,7 @@ class Users::SessionsController < Devise::SessionsController
       render json: {
         # status: 401,
         user: {},
-        message: "Couldnt find user."
+        message: 'Couldnt find user.'
       }, status: :ok
     end
   end

@@ -2,7 +2,7 @@ require 'stripe'
 # require_relative 'order_pay/order_pay'
 
 class Orders::OrdersController < ApplicationController
-  include OrderPay
+  # include OrderPay
   def index
     user_id = params[:user_id]
     orders = Order.where(user_id:)

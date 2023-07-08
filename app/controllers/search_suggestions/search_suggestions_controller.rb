@@ -1,4 +1,4 @@
-class SearchSuggestionsController < ApplicationController
+class SearchSuggestions::SearchSuggestionsController < ApplicationController
   def index; end
 
   def create; end

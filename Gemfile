@@ -22,6 +22,8 @@ gem 'devise-jwt'
 
 gem 'carrierwave'
 
+gem 'jsonapi-serializer'
+
 gem 'fast_jsonapi'
 
 gem 'active_model_serializers'

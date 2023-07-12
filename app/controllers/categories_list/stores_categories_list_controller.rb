@@ -5,7 +5,7 @@ class CategoriesList::StoresCategoriesListController < ApplicationController
 
   def create
     name = params[:name]
-    icon = params[:icon]
+    params[:icon]
     image = params[:image]
 
     category = StoreCategoriesList.new(name:)

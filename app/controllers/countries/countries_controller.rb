@@ -10,7 +10,7 @@ class Countries::CountriesController < ApplicationController
     currency_name = country_data[:currency_name]
     currency_symbol = country_data[:currency_symbol]
     country_code = country_data[:country_code]
-    icon = country_data[:icon]
+    country_data[:icon]
     if Country.create(name:, currency_name:, currency_symbol:, country_code:)
       render json: { message: 'Created Successfully' }
     else

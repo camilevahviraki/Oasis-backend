@@ -45,6 +45,7 @@ class Items::ItemsController < ApplicationController
     price = params[:price]
     quantity = params[:quantity]
     category_name = params[:category]
+    store_token = params[:store_token]
 
     @item = Item.new(
       store_id:,
@@ -53,7 +54,8 @@ class Items::ItemsController < ApplicationController
       names:,
       price:,
       quantity:,
-      category_name:
+      category_name:,
+      store_token:
     )
 
     ItemCategoriesList.where(name: params[:category])[0]

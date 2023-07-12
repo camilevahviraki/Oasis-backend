@@ -6,7 +6,10 @@ class Attributes::CapacitiesController < ApplicationController
 
   def create
     capacity_data = params[:capacityData]
-    if CapacityUnit.create(capacity_data)
+    name = capacity_data[:name]
+    code = capacity_data[:code]
+
+    if CapacityUnit.create(code:, name:)
       render json: { message: 'Created Successfully' }
     else
       render json: { message: 'Error' }

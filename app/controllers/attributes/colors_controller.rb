@@ -6,7 +6,10 @@ class Attributes::ColorsController < ApplicationController
 
   def create
     color_data = params[:colorData]
-    if Color.create(color_data)
+    name = color_data[:name]
+    hex_code = color_data[:hex_code]
+
+    if Color.create(name:, hex_code:)
       render json: { message: 'Created Successfully' }
     else
       render json: { message: 'Error' }

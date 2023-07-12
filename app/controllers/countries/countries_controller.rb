@@ -6,7 +6,12 @@ class Countries::CountriesController < ApplicationController
 
   def create
     country_data = params[:countryData]
-    if Country.create(country_data)
+    name = country_data[:name]
+    currency_name = country_data[:currency_name]
+    currency_symbol = country_data[:currency_symbol]
+    country_code = country_data[:country_code]
+    icon = country_data[:icon]
+    if Country.create(name:, currency_name:, currency_symbol:, country_code:)
       render json: { message: 'Created Successfully' }
     else
       render json: { message: 'Error' }

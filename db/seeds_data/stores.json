@@ -108,7 +108,7 @@
         "location": "Toy Town Mall, 456 Playful Avenue, Fun City",
         "description": "Explore the magical world of toys and games at Kid's Wonderland. We bring joy and laughter to children of all ages with our diverse collection of toys and educational games.",
         "country_id": 1,
-        "image": "db/seeds_data/images/stores/coffee1.jpeg",
+        "image": "db/seeds_data/images/stores/coffee1.jpg",
         "images_array": [
             "db/seeds_data/images/stores/kids-store2.jpeg",
             "db/seeds_data/images/stores/kids-store1.jpeg"

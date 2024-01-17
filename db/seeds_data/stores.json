@@ -164,7 +164,7 @@
         "image": "db/seeds_data/images/stores/clothes2.jpg",
         "images_array": [
             "db/seeds_data/images/stores/kids-store.jpeg",
-            "db/seeds_data/images/stores/clothes1.jpg"
+            "db/seeds_data/images/stores/clothes1.jpeg"
         ],
         "coordinates": ["37.7749", "-122.4194"],
         "categories": [
@@ -182,7 +182,12 @@
             "names": "#Hoodie",
             "main_name": "Hoodie",
             "store_id": 1,
-            "pictures": ["db/seeds_data/images/items/hoodie.jpg"],
+            "pictures": [
+                "db/seeds_data/images/items/pngwing.com (7).png",
+                "db/seeds_data/images/items/pngwing.com (8).png",
+                "db/seeds_data/images/items/pngwing.com (9).png",
+                "db/seeds_data/images/items/pngwing.com (13).png"
+            ],
             "price": 39.99,
             "description": "Stay warm and stylish with our cozy hoodies.",
             "quantity": 50,

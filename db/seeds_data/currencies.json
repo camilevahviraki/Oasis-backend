@@ -1,0 +1,170 @@
+[
+    {
+        "symbole": "DZD",
+        "name": "Algerian Dinar",
+        "exchange": 132000,
+        "country": "Algeria"
+    },
+    {
+        "symbole": "AUD",
+        "name": "Australian Dollar",
+        "exchange": 1330,
+        "country": "Australia"
+    },
+    {
+        "symbole": "BRL",
+        "name": "Brazilian Real",
+        "exchange": 5010,
+        "country": "Brazil"
+    },
+    {
+        "symbole": "CAD",
+        "name": "Canadian Dollar",
+        "exchange": 1320,
+        "country": "Canada"
+    },
+    {
+        "symbole": "CNY",
+        "name": "Chinese Yuan",
+        "exchange": 6470,
+        "country": "China"
+    },
+    {
+        "symbole": "Frc",
+        "name": "Congolese Franc",
+        "exchange": 2078000,
+        "country": "Democratic Republic of the Congo"
+    },
+    {
+        "symbole": "EGP",
+        "name": "Egyptian Pound",
+        "exchange": 17720,
+        "country": "Egypt"
+    },
+    {
+        "symbole": "EUR",
+        "name": "Euro",
+        "exchange": 890,
+        "country": "European Union"
+    },
+    {
+        "symbole": "GHS",
+        "name": "Ghanaian Cedi",
+        "exchange": 6050,
+        "country": "Ghana"
+    },
+    {
+        "symbole": "GBP",
+        "name": "British Pound",
+        "exchange": 780,
+        "country": "United Kingdom"
+    },
+    {
+        "symbole": "HKD",
+        "name": "Hong Kong Dollar",
+        "exchange": 7760,
+        "country": "Hong Kong"
+    },
+    {
+        "symbole": "INR",
+        "name": "Indian Rupee",
+        "exchange": 74200,
+        "country": "India"
+    },
+    {
+        "symbole": "JPY",
+        "name": "Japanese Yen",
+        "exchange": 109880,
+        "country": "Japan"
+    },
+    {
+        "symbole": "KES",
+        "name": "Kenyan Shilling",
+        "exchange": 113300,
+        "country": "Kenya"
+    },
+    {
+        "symbole": "KRW",
+        "name": "South Korean Won",
+        "exchange": 1126500,
+        "country": "South Korea"
+    },
+    {
+        "symbole": "MAD",
+        "name": "Moroccan Dirham",
+        "exchange": 9400,
+        "country": "Morocco"
+    },
+    {
+        "symbole": "MXN",
+        "name": "Mexican Peso",
+        "exchange": 19980,
+        "country": "Mexico"
+    },
+    {
+        "symbole": "NGN",
+        "name": "Nigerian Naira",
+        "exchange": 413000,
+        "country": "Nigeria"
+    },
+    {
+        "symbole": "NOK",
+        "name": "Norwegian Krone",
+        "exchange": 8550,
+        "country": "Norway"
+    },
+    {
+        "symbole": "NZD",
+        "name": "New Zealand Dollar",
+        "exchange": 1420,
+        "country": "New Zealand"
+    },
+    {
+        "symbole": "SEK",
+        "name": "Swedish Krona",
+        "exchange": 8800,
+        "country": "Sweden"
+    },
+    {
+        "symbole": "SGD",
+        "name": "Singapore Dollar",
+        "exchange": 1350,
+        "country": "Singapore"
+    },
+    {
+        "symbole": "TRY",
+        "name": "Turkish Lira",
+        "exchange": 8630,
+        "country": "Turkey"
+    },
+    {
+        "symbole": "USD",
+        "name": "United States Dollar",
+        "exchange": 1000,
+        "country": "United States"
+    },
+    {
+        "symbole": "ZAR",
+        "name": "South African Rand",
+        "exchange": 14360,
+        "country": "South Africa"
+    },
+    {
+        "symbole": "ZMW",
+        "name": "Zambian Kwacha",
+        "exchange": 21370,
+        "country": "Zambia"
+    },
+    {
+        "symbole": "ZWL",
+        "name": "Zimbabwean Dollar",
+        "exchange": 357000,
+        "country": "Zimbabwe"
+    },
+    {
+        "symbole": "Frw",
+        "name": "Rwandan Francs",
+        "exchange": 1200000,
+        "country": "Rwanda"
+    }
+]

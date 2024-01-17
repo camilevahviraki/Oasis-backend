@@ -23,9 +23,10 @@ default: &default
 
 development:
   <<: *default
-  database: vitron_first_backend_r_development
+  # database: vitron_first_backend_r_development
+  database: oasis_2024_dev
   username: camile
-  password: your_password
+  password: camilux
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.

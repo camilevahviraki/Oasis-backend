@@ -111,7 +111,7 @@
         "image": "db/seeds_data/images/stores/coffee1.jpg",
         "images_array": [
             "db/seeds_data/images/stores/kids-store2.jpeg",
-            "db/seeds_data/images/stores/kids-store1.jpeg"
+            "db/seeds_data/images/stores/kids-store.jpeg"
         ],
         "coordinates": "[\"37.7749\",\"-122.4194\"]",
         "categories": [

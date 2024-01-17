@@ -1,9 +1,9 @@
 {
     "first_name": "Oasis",
     "last_name": "Admin",
-    // "password": "qwerty243",
-    // "email": "qwerty@gmail.com",
-    "password": "#{ENV['ADMIN_PASSWORD']}",
-    "email": "#{ENV['ADMIN_MAIL']}",
+    "password": "qwerty243",
+    "email": "qwerty@gmail.com",
+    // "password": "#{ENV['ADMIN_PASSWORD']}",
+    // "email": "#{ENV['ADMIN_MAIL']}",
     "admin": "yes"
 }

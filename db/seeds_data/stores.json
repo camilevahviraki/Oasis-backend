@@ -212,7 +212,10 @@
             "names": "#Sneakers1, #Sneakers2, #sport, #nike",
             "main_name": "Nike sport",
             "store_id": 1,
-            "pictures": ["db/seeds_data/images/items/shoe1.png", "db/seeds_data/images/items/shoe3.png"],
+            "pictures": [
+                "db/seeds_data/images/items/shoe1.jpg",
+                "db/seeds_data/images/items/sho3.jpg"
+            ],
             "price": 59.99,
             "description": "Step out in style with our fashionable sneakers.",
             "quantity": 40,

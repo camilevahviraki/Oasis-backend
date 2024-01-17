@@ -15,8 +15,8 @@ class Currencies::CurrenciesController < ApplicationController
       render json: { message: 'Deleted Successfully' }
     else
       render json: { message: 'Error' }
-    end  
-  end  
+    end
+  end
 
   def create
     currency_data = params[:currencyData]

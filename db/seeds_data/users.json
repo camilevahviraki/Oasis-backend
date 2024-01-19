@@ -3,7 +3,7 @@
     "last_name": "Admin",
     // "password": "qwerty243",
     // "email": "qwerty@gmail.com",
-    "password": "#{ENV['ADMIN_PASSWORD']}",
-    "email": "#{ENV['ADMIN_MAIL']}",
+    "password": "<%= ENV['ADMIN_PASSWORD'] %>",
+    "email": "<%= ENV['ADMIN_MAIL'] %>",
     "admin": "yes"
 }

@@ -1,0 +1,257 @@
+[
+    {
+        "name": "ElectroTech Hub",
+        "location": "City Center Mall, 123 Main Street, Tech City",
+        "description": "Discover the latest and greatest in electronics at ElectroTech Hub. From cutting-edge gadgets to smart home solutions, we've got your tech needs covered.",
+        "country_id": 1,
+        "image": "db/seeds_data/images/stores/electronics-2.jpeg",
+        "images_array": [],
+        "coordinates": "[\"37.7749\",\"-122.4194\"]",
+        "categories": [
+            {
+                "name": "Electronics",
+                "store_categories_list_id": 1
+            },
+            {
+                "name": "Music and Instruments",
+                "store_categories_list_id": 1
+            }
+        ],
+        "items": [
+            {
+                "names": "#Powerful Computer, #Desktop PC, #High-Performance Workstation",
+                "main_name": "Powerful Computer",
+                "store_id": 1,
+                "pictures": [
+                    "db/seeds_data/images/items/computer1.png",
+                    "db/seeds_data/images/items/computer3.png"
+                ],
+                "price": 899.99,
+                "description": "A high-performance computer for demanding tasks.",
+                "quantity": 15,
+                "shipping_options": "yes",
+                "category_name": "Electronics"
+            },
+            {
+                "names": "#Wireless Airphone, #Bluetooth Earbuds, #Noise-Canceling Headphones",
+                "main_name": "Wireless Airphone",
+                "store_id": 1,
+                "pictures": [
+                    "db/seeds_data/images/items/airphone1.png"
+                ],
+                "price": 129.99,
+                "description": "Experience freedom with wireless airphones.",
+                "quantity": 30,
+                "shipping_options": "yes",
+                "category_name": "Music and Instruments"
+            },
+            {
+                "names": "#Stylish Phone Cover, #Protective Case, #Phone Accessories",
+                "main_name": "Stylish Phone Cover",
+                "store_id": 1,
+                "pictures": [
+                    "db/seeds_data/images/items/phone1.png",
+                    "db/seeds_data/images/items/phone3.png"
+                ],
+                "price": 19.99,
+                "description": "Keep your phone stylish and protected with this trendy cover.",
+                "quantity": 50,
+                "shipping_options": "yes",
+                "category_name": "Electronics"
+            },
+            {
+                "names": "#High-Capacity Hard Drive, #External Storage, #Data Backup",
+                "main_name": "High-Capacity Hard Drive",
+                "store_id": 1,
+                "pictures": [
+                    "db/seeds_data/images/items/hardDrive.png"
+                ],
+                "price": 149.99,
+                "description": "Store and backup your data with a high-capacity hard drive.",
+                "quantity": 25,
+                "shipping_options": "yes",
+                "category_name": "Electronics"
+            },
+            {
+                "names": "#IphoneX, #Latest iPhone, #Smartphone",
+                "main_name": "IphoneX",
+                "store_id": 1,
+                "pictures": [
+                    "db/seeds_data/images/items/phone2.png",
+                    "db/seeds_data/images/items/phone4.png"
+                ],
+                "price": 599.99,
+                "description": "Experience the latest technology with the IphoneX.",
+                "quantity": 10,
+                "shipping_options": "yes",
+                "category_name": "Electronics"
+            },
+            {
+                "names": "#Smart Watch, #Fitness Tracker, #Wearable Tech",
+                "main_name": "Smart Watch",
+                "store_id": 1,
+                "pictures": [
+                  "db/seeds_data/images/items/watch1.png",
+                  "db/seeds_data/images/items/watch2.png",
+                  "db/seeds_data/images/items/watch3.png"
+                ],
+                "price": 129.99,
+                "description": "Stay connected and track your fitness with a smartwatch.",
+                "quantity": 20,
+                "shipping_options": "yes",
+                "category_name": "Electronics"
+              }
+        ]
+    },
+    {
+        "name": "Kid's Wonderland",
+        "location": "Toy Town Mall, 456 Playful Avenue, Fun City",
+        "description": "Explore the magical world of toys and games at Kid's Wonderland. We bring joy and laughter to children of all ages with our diverse collection of toys and educational games.",
+        "country_id": 1,
+        "image": "db/seeds_data/images/stores/coffee1.jpg",
+        "images_array": [
+            "db/seeds_data/images/stores/kids-store2.jpeg",
+            "db/seeds_data/images/stores/kids-store.jpeg"
+        ],
+        "coordinates": "[\"37.7749\",\"-122.4194\"]",
+        "categories": [
+            {
+                "name": "Toys",
+                "store_categories_list_id": 2
+            },
+            {
+                "name": "Games",
+                "store_categories_list_id": 2
+            },
+            {
+                "name": "Baby and Kids",
+                "store_categories_list_id": 2
+            }
+        ],
+        "items": [
+            {
+                "names": "#Dino, #T-rex, #Colorful Rex",
+                "main_name": "Super Dino",
+                "pictures": [
+                    "db/seeds_data/images/items/pngwing.com (18).png",
+                    "db/seeds_data/images/items/pngwing.com (19).png"
+                ],
+                "price": 15.99,
+                "description": "A bouncy and colorful dino for endless fun!",
+                "quantity": 244,
+                "shipping_options": "yes",
+                "category_name": "Toys"
+            },
+            {
+                "names": "#ABC Learning Blocks, #Educational Blocks, #Alphabet Blocks",
+                "main_name": "Smilling Car",
+                "pictures": [
+                    "db/seeds_data/images/items/pngwing.com (19).png"
+                ],
+                "price": 19.99,
+                "description": "Educational building blocks with letters and numbers.",
+                "quantity": 120,
+                "shipping_options": "yes",
+                "category_name": "Toys"
+            }
+        ]
+    },
+    {
+        "name": "Fashion Haven",
+        "location": "123 Trendy Street, Fashion City",
+        "description": "Explore the latest fashion trends at Fashion Haven. From comfortable hoodies to stylish shoes, we've got your wardrobe covered.",
+        "country_id": 1,
+        "image": "db/seeds_data/images/stores/clothes2.jpg",
+        "images_array": [
+            "db/seeds_data/images/stores/kids-store.jpeg",
+            "db/seeds_data/images/stores/clothes1.jpeg"
+        ],
+        "coordinates": ["37.7749", "-122.4194"],
+        "categories": [
+          {
+            "name": "Clothes",
+            "store_categories_list_id": 2
+          },
+          {
+            "name": "Footwear",
+            "store_categories_list_id": 2
+          }
+        ],
+        "items": [
+          {
+            "names": "#Hoodie",
+            "main_name": "Hoodie",
+            "store_id": 1,
+            "pictures": [
+                "db/seeds_data/images/items/pngwing.com (7).png",
+                "db/seeds_data/images/items/pngwing.com (8).png",
+                "db/seeds_data/images/items/pngwing.com (9).png",
+                "db/seeds_data/images/items/pngwing.com (13).png"
+            ],
+            "price": 39.99,
+            "description": "Stay warm and stylish with our cozy hoodies.",
+            "quantity": 50,
+            "shipping_options": "yes",
+            "category_name": "Clothes"
+          },
+          {
+            "names": "#Cap",
+            "main_name": "Cap",
+            "store_id": 1,
+            "pictures": [
+                "db/seeds_data/images/items/pngwing.com (12).png",
+                "db/seeds_data/images/items/pngwing.com (21).png"
+            ],
+            "price": 19.99,
+            "description": "Top off your look with our trendy caps.",
+            "quantity": 30,
+            "shipping_options": "yes",
+            "category_name": "Clothes"
+          },
+          {
+            "names": "#Sneakers1, #Sneakers2, #sport, #nike",
+            "main_name": "Nike sport",
+            "store_id": 1,
+            "pictures": [
+                "db/seeds_data/images/items/shoe1.jpg",
+                "db/seeds_data/images/items/sho3.jpg"
+            ],
+            "price": 59.99,
+            "description": "Step out in style with our fashionable sneakers.",
+            "quantity": 40,
+            "shipping_options": "yes",
+            "category_name": "Footwear"
+          },
+          {
+            "names": "#TShirt",
+            "main_name": "T-Shirt",
+            "store_id": 1,
+            "pictures": [
+                "db/seeds_data/images/items/pngwing.com (4).png",
+                "db/seeds_data/images/items/pngwing.com (5).png",
+                "db/seeds_data/images/items/pngwing.com (6).png"
+            ],
+            "price": 24.99,
+            "description": "Casual and comfortable, our t-shirts are perfect for everyday wear.",
+            "quantity": 60,
+            "shipping_options": "yes",
+            "category_name": "Clothes"
+          },
+          {
+            "names": "#Chemises, #shirt",
+            "main_name": "Coton shirt",
+            "store_id": 1,
+            "pictures": [
+                "db/seeds_data/images/items/pngwing.com (14).png",
+                "db/seeds_data/images/items/pngwing.com (3).png"
+            ],
+            "price": 49.99,
+            "description": "Elevate your style with our elegant chemises.",
+            "quantity": 25,
+            "shipping_options": "yes",
+            "category_name": "Clothes"
+          }
+        ]
+      }
+      
+]

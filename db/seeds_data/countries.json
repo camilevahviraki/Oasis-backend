@@ -1,0 +1,238 @@
+[
+    {
+        "name": "United States",
+        "postal_code": 12345,
+        "country_code": 1,
+        "currency_name": "US Dollar",
+        "currency_symbol": "$",
+        "exchange": 1,
+        "latitude": 37,
+        "longitude": -95
+    },
+    {
+        "name": "United Kingdom",
+        "postal_code": 54321,
+        "country_code": 2,
+        "currency_name": "Pound Sterling",
+        "currency_symbol": "£",
+        "exchange": 0,
+        "latitude": 55,
+        "longitude": -3
+    },
+    {
+        "name": "France",
+        "postal_code": 98765,
+        "country_code": 3,
+        "currency_name": "Euro",
+        "currency_symbol": "€",
+        "exchange": 0,
+        "latitude": 46,
+        "longitude": 1
+    },
+    {
+        "name": "Canada",
+        "postal_code": 67890,
+        "country_code": 4,
+        "currency_name": "Canadian Dollar",
+        "currency_symbol": "CA$",
+        "exchange": 0,
+        "latitude": 56,
+        "longitude": -106
+    },
+    {
+        "name": "Germany",
+        "postal_code": 13579,
+        "country_code": 5,
+        "currency_name": "Euro",
+        "currency_symbol": "€",
+        "exchange": 0,
+        "latitude": 51,
+        "longitude": 10
+    },
+    {
+        "name": "Australia",
+        "postal_code": 24680,
+        "country_code": 6,
+        "currency_name": "Australian Dollar",
+        "currency_symbol": "AU$",
+        "exchange": 0,
+        "latitude": -25,
+        "longitude": 133
+    },
+    {
+        "name": "China",
+        "postal_code": 86420,
+        "country_code": 7,
+        "currency_name": "Chinese Yuan",
+        "currency_symbol": "¥",
+        "exchange": 0,
+        "latitude": 35,
+        "longitude": 104
+    },
+    {
+        "name": "India",
+        "postal_code": 12346,
+        "country_code": 8,
+        "currency_name": "Indian Rupee",
+        "currency_symbol": "₹",
+        "exchange": 0,
+        "latitude": 20,
+        "longitude": 78
+    },
+    {
+        "name": "Brazil",
+        "postal_code": 54322,
+        "country_code": 9,
+        "currency_name": "Brazilian Real",
+        "currency_symbol": "R$",
+        "exchange": 0,
+        "latitude": -14,
+        "longitude": -51
+    },
+    {
+        "name": "Japan",
+        "postal_code": 98766,
+        "country_code": 10,
+        "currency_name": "Japanese Yen",
+        "currency_symbol": "¥",
+        "exchange": 0,
+        "latitude": 36,
+        "longitude": 138
+    },
+    {
+        "name": "Italy",
+        "postal_code": 12347,
+        "country_code": 11,
+        "currency_name": "Euro",
+        "currency_symbol": "€",
+        "exchange": 0,
+        "latitude": 41,
+        "longitude": 12
+    },
+    {
+        "name": "Spain",
+        "postal_code": 54323,
+        "country_code": 12,
+        "currency_name": "Euro",
+        "currency_symbol": "€",
+        "exchange": 0,
+        "latitude": 40,
+        "longitude": -3
+    },
+    {
+        "name": "Mexico",
+        "postal_code": 98767,
+        "country_code": 13,
+        "currency_name": "Mexican Peso",
+        "currency_symbol": "$",
+        "exchange": 0,
+        "latitude": 23,
+        "longitude": -102
+    },
+    {
+        "name": "South Africa",
+        "postal_code": 13580,
+        "country_code": 14,
+        "currency_name": "South African Rand",
+        "currency_symbol": "R",
+        "exchange": 0,
+        "latitude": -30,
+        "longitude": 22
+    },
+    {
+        "name": "Russia",
+        "postal_code": 24681,
+        "country_code": 15,
+        "currency_name": "Russian Ruble",
+        "currency_symbol": "₽",
+        "exchange": 0,
+        "latitude": 61,
+        "longitude": 105
+    },
+    {
+        "name": "Argentina",
+        "postal_code": 86421,
+        "country_code": 16,
+        "currency_name": "Argentine Peso",
+        "currency_symbol": "$",
+        "exchange": 0,
+        "latitude": -38,
+        "longitude": -63
+    },
+    {
+        "name": "Netherlands",
+        "postal_code": 12348,
+        "country_code": 17,
+        "currency_name": "Euro",
+        "currency_symbol": "€",
+        "exchange": 0,
+        "latitude": 52,
+        "longitude": 5
+    },
+    {
+        "name": "Sweden",
+        "postal_code": 54324,
+        "country_code": 18,
+        "currency_name": "Swedish Krona",
+        "currency_symbol": "kr",
+        "exchange": 0,
+        "latitude": 60,
+        "longitude": 18
+    },
+    {
+        "name": "Saudi Arabia",
+        "postal_code": 98768,
+        "country_code": 19,
+        "currency_name": "Saudi Riyal",
+        "currency_symbol": "﷼",
+        "exchange": 0,
+        "latitude": 23,
+        "longitude": 45
+    },
+    {
+        "name": "Switzerland",
+        "postal_code": 13581,
+        "country_code": 20,
+        "currency_name": "Swiss Franc",
+        "currency_symbol": "CHF",
+        "exchange": 0,
+        "latitude": 46,
+        "longitude": 8
+    },
+    {
+        "name": "Morocco",
+        "country_code": 221,
+        "currency_name": "Dinar",
+        "currency_symbol": "$",
+        "exchange": null,
+        "latitude": null,
+        "longitude": null
+    },
+    {
+        "name": "Congo DRC",
+        "country_code": 243,
+        "currency_name": "Congolese Francs",
+        "currency_symbol": "Fc",
+        "exchange": null,
+        "latitude": null,
+        "longitude": null
+    },
+    {
+        "name": "Kenya",
+        "country_code": 257,
+        "currency_name": "Shillings",
+        "currency_symbol": "KES",
+        "exchange": null,
+        "latitude": null,
+        "longitude": null
+    },
+    {
+        "name": "Uganda",
+        "country_code": 256,
+        "currency_name": "Shillings",
+        "currency_symbol": "U shillings",
+        "exchange": null,
+        "latitude": null,
+        "longitude": null
+    }
+]

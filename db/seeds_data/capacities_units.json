@@ -1,0 +1,22 @@
+[
+  {"name": "Farad", "code": "F"},
+  {"name": "Microfarad", "code": "µF"},
+  {"name": "Nanofarad", "code": "nF"},
+  {"name": "Picofarad", "code": "pF"},
+  {"name": "Cubic Meter", "code": "m³"},
+  {"name": "Liter", "code": "L"},
+  {"name": "Gallon", "code": "gal"},
+  {"name": "Liter", "code": "L"},
+  {"name": "Cubic Inch", "code": "in³"},
+  {"name": "Cubic Foot", "code": "ft³"},
+  {"name": "Bit", "code": "bit"},
+  {"name": "Byte", "code": "B"},
+  {"name": "Kilobit", "code": "Kb"},
+  {"name": "Kilobyte", "code": "KB"},
+  {"name": "Megabit", "code": "Mb"},
+  {"name": "Megabyte", "code": "MB"},
+  {"name": "Gigabit", "code": "Gb"},
+  {"name": "Gigabyte", "code": "GB"},
+  {"name": "Terabit", "code": "Tb"},
+  {"name": "Terabyte", "code": "TB"}
+]

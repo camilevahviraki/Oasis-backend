@@ -9,6 +9,15 @@ class Currencies::CurrenciesController < ApplicationController
     render json: currency
   end
 
+  def delete
+    curr = Currency.find(params[:id])
+    if curr.delete
+      render json: { message: 'Deleted Successfully' }
+    else
+      render json: { message: 'Error' }
+    end
+  end
+
   def create
     currency_data = params[:currencyData]
     name = currency_data[:name]

@@ -1,0 +1,102 @@
+[
+    {
+        "name": "Meter",
+        "code": "m"
+    },
+    {
+        "name": "Kilometer",
+        "code": "km"
+    },
+    {
+        "name": "Centimeter",
+        "code": "cm"
+    },
+    {
+        "name": "Millimeter",
+        "code": "mm"
+    },
+    {
+        "name": "Foot",
+        "code": "ft"
+    },
+    {
+        "name": "Inch",
+        "code": "in"
+    },
+    {
+        "name": "Yard",
+        "code": "yd"
+    },
+    {
+        "name": "Mile",
+        "code": "mi"
+    },
+    {
+        "name": "Square Meter",
+        "code": "m²"
+    },
+    {
+        "name": "Square Kilometer",
+        "code": "km²"
+    },
+    {
+        "name": "Square Centimeter",
+        "code": "cm²"
+    },
+    {
+        "name": "Square Millimeter",
+        "code": "mm²"
+    },
+    {
+        "name": "Square Foot",
+        "code": "ft²"
+    },
+    {
+        "name": "Square Inch",
+        "code": "in²"
+    },
+    {
+        "name": "Cubic Meter",
+        "code": "m³"
+    },
+    {
+        "name": "Cubic Kilometer",
+        "code": "km³"
+    },
+    {
+        "name": "Cubic Centimeter",
+        "code": "cm³"
+    },
+    {
+        "name": "Cubic Millimeter",
+        "code": "mm³"
+    },
+    {
+        "name": "Cubic Foot",
+        "code": "ft³"
+    },
+    {
+        "name": "Cubic Inch",
+        "code": "in³"
+    },
+    {
+        "name": "Byte",
+        "code": "B"
+    },
+    {
+        "name": "Kilobyte",
+        "code": "KB"
+    },
+    {
+        "name": "Megabyte",
+        "code": "MB"
+    },
+    {
+        "name": "Gigabyte",
+        "code": "GB"
+    },
+    {
+        "name": "Terabyte",
+        "code": "TB"
+    }
+]

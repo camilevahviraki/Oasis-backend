@@ -9,7 +9,7 @@ class Attributes::ColorsController < ApplicationController
     name = color_data[:name]
     hex_code = color_data[:hex_code]
 
-    if Color.create(name:, hex_code:)
+    if Color.create(name: name, hex_code: hex_code)
       render json: { message: 'Created Successfully' }
     else
       render json: { message: 'Error' }

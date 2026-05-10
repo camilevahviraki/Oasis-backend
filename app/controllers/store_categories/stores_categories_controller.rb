@@ -20,7 +20,7 @@ class StoreCategories::StoresCategoriesController < ApplicationController
     store_id = params[:store_id]
     category = params[:category]
     new_store_category = StoreCategory.new(
-      store_id:,
+      store_id: store_id,
       name: category[:name],
       store_categories_list_id: category[:id]
     )

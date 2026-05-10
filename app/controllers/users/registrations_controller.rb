@@ -10,7 +10,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
       render json: {
         status: { code: 200, message: 'Registered sucessfully.' },
         user: UserSerializer.new(resource).serializable_hash[:data][:attributes],
-        token:
+        token: token
       }
 
     else

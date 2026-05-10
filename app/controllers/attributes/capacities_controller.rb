@@ -9,7 +9,7 @@ class Attributes::CapacitiesController < ApplicationController
     name = capacity_data[:name]
     code = capacity_data[:code]
 
-    if CapacityUnit.create(code:, name:)
+    if CapacityUnit.create(code: code, name: name)
       render json: { message: 'Created Successfully' }
     else
       render json: { message: 'Error' }

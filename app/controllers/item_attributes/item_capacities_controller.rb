@@ -15,11 +15,11 @@ class ItemAttributes::ItemCapacitiesController < ApplicationController
     item = Item.find_by(token_id: item_id)
 
     new_capacity = ItemCapacity.new(
-      name:,
-      code:,
+      name: name,
+      code: code,
       item_id: item.id,
-      capacity_unit_id:,
-      value:
+      capacity_unit_id: capacity_unit_id,
+      value: value
     )
 
     if new_capacity.save

@@ -26,7 +26,7 @@ class StoreSales::StoreSalesController < ApplicationController
     total_sales = StoreSale.where('DATE(created_at) = ?', Date.today).sum(:price_paid)
     products_created_today = StoreSale.where('DATE(created_at) = ?', Date.today).count
     render json: store_sales, each_serializer: StoreSaleSerializer,
-           meta: { total_sales:, products_added_today: products_created_today }
+           meta: { total_sales: total_sales, products_added_today: products_created_today }
   end
 
   def graph
@@ -38,27 +38,30 @@ class StoreSales::StoreSalesController < ApplicationController
     result_array = []
 
     if single_item
-      single_item_sales_per_date = StoreSale.where(item_id:).group('DATE(created_at)').count(:quantity)
+      single_item_sales_per_date = StoreSale.where(item_id: item_id).group('DATE(created_at)').count(:quantity)
       result_array = single_item_sales_per_date.map do |date, count|
         {
-          date:,
-          count:
+          date: date,
+          count: count
+        }
         }
       end
     elsif amount_per_date
-      amount_sold_per_date = StoreSale.where(store_id:).group('DATE(created_at)').sum(:price_paid)
+      amount_sold_per_date = StoreSale.where(store_id: store_id).group('DATE(created_at)').sum(:price_paid)
       result_array = amount_sold_per_date.map do |date, count|
         {
-          date:,
-          count:
+          date: date,
+          count: count
+        }
         }
       end
     else
-      items_sold_per_date = StoreSale.where(store_id:).group('DATE(created_at)').count(:quantity)
+      items_sold_per_date = StoreSale.where(store_id: store_id).group('DATE(created_at)').count(:quantity)
       result_array = items_sold_per_date.map do |date, count|
         {
-          date:,
-          count:
+          date: date,
+          count: count
+        }
         }
       end
     end
@@ -78,15 +81,15 @@ class StoreSales::StoreSalesController < ApplicationController
     quantity = params[:quantity]
 
     store_sale = StoreSale.new(
-      item_id:,
-      store_id:,
+      item_id: item_id,
+      store_id: store_id,
       item_capacity_id: item_capacity,
       item_color_id: item_color,
       item_material_id: item_material,
       item_size_id: item_size,
-      quantity:,
-      price_paid:,
-      unit_price:
+      quantity: quantity,
+      price_paid: price_paid,
+      unit_price: unit_price
     )
     item = Item.find(item_id)
     item.update(quantity: (item.quantity - quantity))

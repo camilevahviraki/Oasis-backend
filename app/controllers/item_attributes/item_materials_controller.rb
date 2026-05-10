@@ -14,10 +14,10 @@ class ItemAttributes::ItemMaterialsController < ApplicationController
     item = Item.find_by(token_id: item_id)
 
     new_material = ItemMaterial.new(
-      name:,
-      code:,
+      name: name,
+      code: code,
       item_id: item.id,
-      material_id:
+      material_id: material_id
     )
 
     if new_material.save

@@ -21,7 +21,7 @@ class Orders::OrdersController < ApplicationController
     order_items = params[:order_items]
 
     order = Order.new(
-      user_id:
+      user_id: user_id
     )
 
     if order.save
@@ -70,9 +70,9 @@ class Orders::OrdersController < ApplicationController
 
     data = {
       payment_method_types: payment_method_type == 'link' ? %w[link card] : [payment_method_type],
-      amount:,
-      currency:,
-      payment_method_options:
+      amount: amount,
+      currency: currency,
+      payment_method_options: payment_method_options
     }
 
     if payment_method_type == 'acss_debit'

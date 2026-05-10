@@ -1,0 +1,263 @@
+[
+  {
+    "name": "Clothing",
+    "key": "clothing",
+    "icon_name": "MdCheckroom",
+    "description": "Apparel, dresses, shirts, and fashion items",
+    "icon_color": "#FF6B35",
+    "sort_order": 1,
+    "active": true
+  },
+  {
+    "name": "Electronics",
+    "key": "electronics",
+    "icon_name": "MdLaptop",
+    "description": "Computers, phones, gadgets, and tech devices",
+    "icon_color": "#FF6B35",
+    "sort_order": 2,
+    "active": true
+  },
+  {
+    "name": "Education",
+    "key": "education",
+    "icon_name": "MdSchool",
+    "description": "Educational materials, courses, and learning resources",
+    "icon_color": "#FF6B35",
+    "sort_order": 3,
+    "active": true
+  },
+  {
+    "name": "Books",
+    "key": "books",
+    "icon_name": "MdMenuBook",
+    "description": "Physical and digital books across all genres",
+    "icon_color": "#FF6B35",
+    "sort_order": 4,
+    "active": true
+  },
+  {
+    "name": "Groceries",
+    "key": "groceries",
+    "icon_name": "MdLocalGroceryStore",
+    "description": "Fresh produce, pantry items, and food products",
+    "icon_color": "#FF6B35",
+    "sort_order": 5,
+    "active": true
+  },
+  {
+    "name": "Home Decor",
+    "key": "home_decor",
+    "icon_name": "MdHome",
+    "description": "Interior design, decorations, and home furnishings",
+    "icon_color": "#FF6B35",
+    "sort_order": 6,
+    "active": true
+  },
+  {
+    "name": "Sports Equipment",
+    "key": "sports_equipment",
+    "icon_name": "MdSportsBasketball",
+    "description": "Athletic gear, exercise equipment, and sports accessories",
+    "icon_color": "#FF6B35",
+    "sort_order": 7,
+    "active": true
+  },
+  {
+    "name": "Beauty and Personal Care",
+    "key": "beauty_personal_care",
+    "icon_name": "MdFaceRetouchingNatural",
+    "description": "Cosmetics, skincare, haircare, and beauty products",
+    "icon_color": "#FF6B35",
+    "sort_order": 8,
+    "active": true
+  },
+  {
+    "name": "Toys and Games",
+    "key": "toys_games",
+    "icon_name": "MdGames",
+    "description": "Children's toys, board games, and recreational items",
+    "icon_color": "#FF6B35",
+    "sort_order": 9,
+    "active": true
+  },
+  {
+    "name": "Jewelry and Accessories",
+    "key": "jewelry_accessories",
+    "icon_name": "MdDiamond",
+    "description": "Jewelry, watches, bags, and fashion accessories",
+    "icon_color": "#FF6B35",
+    "sort_order": 10,
+    "active": true
+  },
+  {
+    "name": "Automotive",
+    "key": "automotive",
+    "icon_name": "MdDirectionsCar",
+    "description": "Car parts, accessories, and automotive products",
+    "icon_color": "#FF6B35",
+    "sort_order": 11,
+    "active": true
+  },
+  {
+    "name": "Pet Supplies",
+    "key": "pet_supplies",
+    "icon_name": "MdPets",
+    "description": "Pet food, toys, and accessories for animals",
+    "icon_color": "#FF6B35",
+    "sort_order": 12,
+    "active": true
+  },
+  {
+    "name": "Health and Wellness",
+    "key": "health_wellness",
+    "icon_name": "MdFavorite",
+    "description": "Vitamins, supplements, and health products",
+    "icon_color": "#FF6B35",
+    "sort_order": 13,
+    "active": true
+  },
+  {
+    "name": "Office Supplies",
+    "key": "office_supplies",
+    "icon_name": "MdNotepad",
+    "description": "Stationery, office equipment, and workspace items",
+    "icon_color": "#FF6B35",
+    "sort_order": 14,
+    "active": true
+  },
+  {
+    "name": "Home Appliances",
+    "key": "home_appliances",
+    "icon_name": "MdKitchen",
+    "description": "Kitchen appliances, cooking tools, and household devices",
+    "icon_color": "#FF6B35",
+    "sort_order": 15,
+    "active": true
+  },
+  {
+    "name": "Furniture",
+    "key": "furniture",
+    "icon_name": "MdChair",
+    "description": "Chairs, tables, beds, and furniture sets",
+    "icon_color": "#FF6B35",
+    "sort_order": 16,
+    "active": true
+  },
+  {
+    "name": "Music and Instruments",
+    "key": "music_instruments",
+    "icon_name": "MdMusicNote",
+    "description": "Musical instruments, audio equipment, and music accessories",
+    "icon_color": "#FF6B35",
+    "sort_order": 17,
+    "active": true
+  },
+  {
+    "name": "Art and Craft Supplies",
+    "key": "art_craft_supplies",
+    "icon_name": "MdPalette",
+    "description": "Art materials, crafts, and creative supplies",
+    "icon_color": "#FF6B35",
+    "sort_order": 18,
+    "active": true
+  },
+  {
+    "name": "Shoes",
+    "key": "shoes",
+    "icon_name": "MdOutlineShopping",
+    "description": "Footwear, sneakers, and shoe collections",
+    "icon_color": "#FF6B35",
+    "sort_order": 19,
+    "active": true
+  },
+  {
+    "name": "Baby and Kids",
+    "key": "baby_kids",
+    "icon_name": "MdChildCare",
+    "description": "Baby products, children's clothing, and toys",
+    "icon_color": "#FF6B35",
+    "sort_order": 20,
+    "active": true
+  },
+  {
+    "name": "Food and Beverages",
+    "key": "food_beverages",
+    "icon_name": "MdFastfood",
+    "description": "Ready-to-eat food, snacks, and beverages",
+    "icon_color": "#FF6B35",
+    "sort_order": 21,
+    "active": true
+  },
+  {
+    "name": "Video Games",
+    "key": "video_games",
+    "icon_name": "MdVideogameAsset",
+    "description": "Gaming consoles, games, and gaming accessories",
+    "icon_color": "#FF6B35",
+    "sort_order": 22,
+    "active": true
+  },
+  {
+    "name": "Watches",
+    "key": "watches",
+    "icon_name": "MdWatchLater",
+    "description": "Wristwatches and timepieces",
+    "icon_color": "#FF6B35",
+    "sort_order": 23,
+    "active": true
+  },
+  {
+    "name": "Cameras and Photography",
+    "key": "cameras_photography",
+    "icon_name": "MdCamera",
+    "description": "Cameras, lenses, and photography equipment",
+    "icon_color": "#FF6B35",
+    "sort_order": 24,
+    "active": true
+  },
+  {
+    "name": "Gifts and Souvenirs",
+    "key": "gifts_souvenirs",
+    "icon_name": "MdGifts",
+    "description": "Gift items and souvenirs",
+    "icon_color": "#FF6B35",
+    "sort_order": 25,
+    "active": true
+  },
+  {
+    "name": "Fitness Equipment",
+    "key": "fitness_equipment",
+    "icon_name": "MdFitness",
+    "description": "Gym equipment and fitness accessories",
+    "icon_color": "#FF6B35",
+    "sort_order": 26,
+    "active": true
+  },
+  {
+    "name": "Outdoor Gear",
+    "key": "outdoor_gear",
+    "icon_name": "MdOutdoors",
+    "description": "Camping, hiking, and outdoor equipment",
+    "icon_color": "#FF6B35",
+    "sort_order": 27,
+    "active": true
+  },
+  {
+    "name": "Stationery",
+    "key": "stationery",
+    "icon_name": "MdLocalLibrary",
+    "description": "Paper, pens, notebooks, and writing supplies",
+    "icon_color": "#FF6B35",
+    "sort_order": 28,
+    "active": true
+  },
+  {
+    "name": "Garden and Plants",
+    "key": "garden_plants",
+    "icon_name": "MdPlantPot",
+    "description": "Plants, gardening tools, and outdoor garden supplies",
+    "icon_color": "#FF6B35",
+    "sort_order": 29,
+    "active": true
+  }
+]

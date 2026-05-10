@@ -29,7 +29,7 @@ class Item < ApplicationRecord
 
     loop do
       self.token_id = SecureRandom.hex(10)
-      break unless self.class.exists?(token_id:)
+      break unless self.class.exists?(token_id: self.token_id)
     end
   end
 end

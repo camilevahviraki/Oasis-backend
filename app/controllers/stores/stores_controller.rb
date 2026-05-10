@@ -70,11 +70,11 @@ class Stores::StoresController < ApplicationController
     user_id = params[:user_id]
     country_id = params[:country_id]
     @store = Store.new(
-      name:,
-      description:,
+      name: name,
+      description: description,
       location: city,
-      user_id:,
-      country_id:
+      user_id: user_id,
+      country_id: country_id
     )
     if @store.save
       @store.image.attach(params[:image])

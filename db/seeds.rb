@@ -2,15 +2,15 @@
 # The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
       def create_item( names, main_name, store_id, pictures, price, description, quantity, shipping_options, category_name, store_token)
         new_item = Item.new(
-          names:,
-          main_name:,
-          store_id:,
-          price:,
-          description:,
-          quantity:,
-          shipping_options:,
-          category_name:,
-          store_token:)
+          names: names,
+          main_name: main_name,
+          store_id: store_id,
+          price: price,
+          description: description,
+          quantity: quantity,
+          shipping_options: shipping_options,
+          category_name: category_name,
+          store_token: store_token)
         
           if new_item.save
             img = ItemImage.create(item_id: new_item.id)
@@ -40,10 +40,19 @@
         )
       end
 
-      stores_categories_list_path = Rails.root.join('db/seeds_data/stores_categories_list.json')
+      # Load enhanced categories with icons, keys, and translations support
+      stores_categories_list_path = Rails.root.join('db/seeds_data/stores_categories_list_enhanced.json')
       stores_categories_list_data = JSON.parse(File.read(stores_categories_list_path), symbolize_names: true)
-      stores_categories_list_data.each do |category_name|
-          StoreCategoriesList.create!(name: category_name)
+      stores_categories_list_data.each do |category|
+          StoreCategoriesList.create!(
+            name: category[:name],
+            key: category[:key],
+            description: category[:description],
+            icon_name: category[:icon_name],
+            icon_color: category[:icon_color],
+            sort_order: category[:sort_order],
+            active: category[:active]
+          )
       end
 
       colors_list_path = Rails.root.join('db/seeds_data/colors.json')

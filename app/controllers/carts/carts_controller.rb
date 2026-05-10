@@ -5,7 +5,7 @@ class Carts::CartsController < ApplicationController
 
   def show
     user_id = params[:user_id]
-    carts = Cart.where(user_id:)
+    carts = Cart.where(user_id: user_id)
     render json: carts, each_serializer: CartSerializer
   end
 
@@ -21,15 +21,15 @@ class Carts::CartsController < ApplicationController
     quantity = params[:quantity]
 
     cart = Cart.new(
-      user_id:,
-      item_id:,
-      store_id:,
+      user_id: user_id,
+      item_id: item_id,
+      store_id: store_id,
       item_capacity_id: item_capacity,
       item_color_id: item_color,
       item_material_id: item_material,
       item_size_id: item_size,
-      quantity:,
-      price:
+      quantity: quantity,
+      price: price
     )
 
     if cart.save
@@ -44,7 +44,7 @@ class Carts::CartsController < ApplicationController
     quantity = params[:quantity]
 
     cart_item = Cart.find(id)
-    if cart_item.update(quantity:)
+    if cart_item.update(quantity: quantity)
       render json: { message: 'Quantity updated successfully!' }
     else
       render json: { message: 'Error while updating quantity!' }

@@ -15,11 +15,11 @@ class ItemAttributes::ItemSizesController < ApplicationController
     item = Item.find_by(token_id: item_id)
 
     new_size = ItemSize.new(
-      name:,
-      code:,
+      name: name,
+      code: code,
       item_id: item.id,
-      size_id:,
-      value:
+      size_id: size_id,
+      value: value
     )
 
     if new_size.save

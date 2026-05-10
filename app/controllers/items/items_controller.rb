@@ -48,14 +48,14 @@ class Items::ItemsController < ApplicationController
     store_token = params[:store_token]
 
     @item = Item.new(
-      store_id:,
-      description:,
-      main_name:,
-      names:,
-      price:,
-      quantity:,
-      category_name:,
-      store_token:
+      store_id: store_id,
+      description: description,
+      main_name: main_name,
+      names: names,
+      price: price,
+      quantity: quantity,
+      category_name: category_name,
+      store_token: store_token
     )
 
     ItemCategoriesList.where(name: params[:category])[0]
@@ -88,12 +88,12 @@ class Items::ItemsController < ApplicationController
     category = params[:category]
     query = params[:query]
     data = if params[:category].nil? || params[:category] == 'all'
-             Item.where(store_id:).where(
+             Item.where(store_id: store_id).where(
                'lower(main_name) LIKE :search OR lower(names) LIKE :search OR lower(description) LIKE :search ',
                search: "%#{query.downcase}%"
              )
            else
-             Item.where(store_id:, category_name: category).where(
+             Item.where(store_id: store_id, category_name: category).where(
                'lower(main_name) LIKE :search OR lower(names) LIKE :search OR lower(description) LIKE :search ',
                search: "%#{query.downcase}%"
              )

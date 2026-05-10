@@ -24,7 +24,7 @@ class Currencies::CurrenciesController < ApplicationController
     exchange = currency_data[:exchange]
     symbole = currency_data[:symbole]
     country = currency_data[:country]
-    if Currency.create(name:, exchange:, symbole:, country:)
+    if Currency.create(name: name, exchange: exchange, symbole: symbole, country: country)
       render json: { message: 'Created Successfully' }
     else
       render json: { message: 'Error' }

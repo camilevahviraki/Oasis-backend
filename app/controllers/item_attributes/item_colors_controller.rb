@@ -11,13 +11,13 @@ class ItemAttributes::ItemColorsController < ApplicationController
     token_id = params[:item_id]
     color_id = params[:id]
 
-    item = Item.find_by(token_id:)
+    item = Item.find_by(token_id: token_id)
 
     new_color = ItemColor.new(
-      name:,
-      hex_code:,
+      name: name,
+      hex_code: hex_code,
       item_id: item.id,
-      color_id:
+      color_id: color_id
     )
 
     if new_color.save

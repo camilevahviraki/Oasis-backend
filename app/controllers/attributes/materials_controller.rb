@@ -8,7 +8,7 @@ class Attributes::MaterialsController < ApplicationController
     material_data = params[:materialData]
     name = material_data[:name]
     code = material_data[:code]
-    if Material.create(name:, code:)
+    if Material.create(name: name, code: code)
       render json: { message: 'Created Successfully' }
     else
       render json: { message: 'Error' }

@@ -8,7 +8,7 @@ class CategoriesList::StoresCategoriesListController < ApplicationController
     params[:icon]
     image = params[:image]
 
-    category = StoreCategoriesList.new(name:)
+    category = StoreCategoriesList.new(name: name)
 
     if category.save
       if image

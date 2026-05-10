@@ -385,6 +385,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_12_173017) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "image"
+    t.string "key"
+    t.text "description"
+    t.string "icon_name"
+    t.string "icon_color"
+    t.integer "sort_order"
+    t.boolean "active", default: true
   end
 
   create_table "store_images", force: :cascade do |t|

@@ -9,7 +9,7 @@ class Attributes::SizesController < ApplicationController
     name = size_data[:name]
     code = size_data[:code]
 
-    if Size.create(name:, code:)
+    if Size.create(name: name, code: code)
       render json: { message: 'Created Successfully' }
     else
       render json: { message: 'Error' }
